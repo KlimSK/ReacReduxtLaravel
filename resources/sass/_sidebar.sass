@@ -1,0 +1,202 @@
+aside
+  min-height: 100vh
+  width: 200px
+  overflow: hidden
+  position: relative
+  flex-shrink: 0
+  background-color: $main-black
+
+  .header-logo
+    background: white
+    display: flex
+    #burger
+      width: 50px
+      height: 50px
+      display: flex
+      justify-content: center
+      align-items: center
+      background: white
+      flex-shrink: 0
+    .home-link
+      padding: 7px
+      background: $main-color
+      display: flex
+      overflow: hidden
+      width: 100%
+      color: white
+      align-items: center
+      justify-content: center
+      text-decoration: none
+      font-weight: 900
+      font-size: 16px
+      white-space: nowrap
+      img
+        max-height: 25px
+        margin-right: 10px
+  nav
+    overflow-y: auto
+    ul
+      padding: 0
+      margin: 0
+      list-style: none
+      color: #cbcbcb
+      .count-info
+        color: #262729
+        background: #FCC636
+        min-width: 15px
+        min-height: 11px
+        font-size: 11px
+        margin-left: 10px
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 2px
+
+      > li
+        img
+          max-width: 100%
+
+        > span
+          display: flex
+          overflow: hidden
+          align-items: center
+          font-size: 15px
+          padding: 7px 10px
+          position: relative
+          cursor: pointer
+          transition: .3s
+
+          &:after
+            font-family: "Font Awesome 5 Free"
+            content: '\f105'
+            font-weight: 900
+            font-size: 16px
+            position: absolute
+            right: 10px
+            display: flex
+            align-items: center
+            transition: .3s
+            justify-content: center
+          &:hover
+            color: white
+            background: #262729
+            &:after
+              transform: rotate(90deg)
+        a
+          color: #cbcbcb
+          text-decoration: none
+          &:hover
+            color: #cbcbcb
+
+        i
+          display: flex !important
+          justify-content: center
+          align-items: center
+          font-size: 17px
+          flex-shrink: 0
+          width: 25px
+          height: 22px
+          margin-right: 15px
+
+        > ul
+          height: 0
+          overflow: hidden
+          display: flex
+          flex-direction: column
+          z-index: 100
+          li
+            position: relative
+            background: #20252a
+            font-size: 13px
+            transition: .3s
+            white-space: nowrap
+            .count-info
+              background: #999
+            &:before
+              content: ''
+              height: 100%
+              width: 0
+              transition: .3s
+              background: $main-color
+              position: absolute
+              left: 0
+              top: 0
+            a
+              display: flex
+              width: 100%
+              padding: 5px 10px 5px 45px
+          li:not(.no-hover)
+            &:hover
+              background: #323b40
+              &:before
+                width: 5px
+
+          li.active
+            background: #262d32
+            transition: .3s
+            &:before
+              width: 5px
+          li.min-menu-title
+            background: rgba(16, 18, 22, 1)
+            display: none
+            padding: 5px 0
+            color: #FFA
+            position: relative
+            font-size: 17px
+            border-bottom: 1px solid #FFA
+            text-align: center
+            &:after
+              font-family: 'Font Awesome 5 Free'
+              content: '\f107'
+              position: absolute
+              right: 10px
+              font-weight: 900
+
+      .no-submenu
+        span
+          &:after
+            content: none
+      > li.green-info
+        span
+          color: rgb(78, 255, 118)
+          i
+            color: #FF3
+      > li.yellow-info
+        span
+          color: rgb(204, 102, 0)
+      > li.active
+        > span
+          background: #323335
+          color: #FFA
+          &:after
+            transform: rotate(90deg)
+        > ul
+          height: auto
+
+aside.min-menu
+  overflow: visible
+  nav
+    > ul
+      > li
+        > ul
+          position: absolute
+          left: 100%
+          top: 0
+          li.min-menu-title
+            display: list-item
+            padding: 5px 30px
+          li
+            a
+              padding: 5px 10px
+
+        > span
+          &:after
+            content: none
+
+      > li.active
+        > ul
+          display: flex
+      > li.sidebar-img-block
+        > ul
+          top: auto
+          bottom: 0

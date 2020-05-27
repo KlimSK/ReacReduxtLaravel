@@ -1,0 +1,470 @@
+body
+  font-family: 'Yandex Sans Text' !important
+
+main
+  display: flex
+
+
+  .main-content
+    flex-grow: 1
+    min-width: 0
+    display: flex
+    flex-direction: column
+    position: relative
+    header
+      background: $main-color
+      display: flex
+      align-items: center
+      justify-content: space-between
+      height: 50px
+      padding: 7px
+      .header-info
+        .header-tariff
+          color: #DAE6FA
+          font-weight: 900
+          font-size: 14px
+          span
+            color: #FF9
+          i
+            cursor: help
+        .all-tariffs
+          margin: 0 10px
+          color: #FF9
+          font-size: 12px
+          text-decoration: underline
+          font-weight: 400
+          cursor: pointer
+
+        .header-contacts
+          font-size: 12px
+          font-weight: 900
+          text-decoration: underline
+          cursor: pointer
+
+        .header-additional-info
+          display: flex
+          .info-block
+            margin-right: 12px
+            color: #DAE6FA
+            font-size: 14px
+            font-weight: 900
+            i
+              margin-right: 3px
+      .header-controls
+        display: flex
+        align-items: center
+        .control-block
+          padding: 0 15px
+          border-right: 1px solid rgba(255, 255, 255, 0.5)
+          height: 100%
+          a
+            position: relative
+            color: #8EB8DD
+            i
+              font-size: 18px
+          &:last-child
+            border-right: none
+            padding-right: 0
+            a
+              color: white
+          .control-count
+            position: absolute
+            top: -12px
+            right: -12px
+            color: #262729
+            background: #FCC636
+            min-width: 15px
+            min-height: 11px
+            font-size: 11px
+            margin-left: 10px
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 2px
+
+        .user-controls
+          cursor: pointer
+          color: white
+          i
+            font-size: 18px
+            margin-right: 5px
+          span
+            font-size: 14px
+
+        .header-user-info
+          table
+            font-size: 14px
+
+            td
+              font-weight: 300
+
+              &:nth-child(2)
+                font-weight: 400
+                padding-left: 15px
+                color: #30608b
+              a
+                color: #303030
+                transition: .3s
+            .user-info-settings
+              a
+                transition: .3s
+                i
+                  transition: .3s
+                &:hover
+                  color: #30608b
+                  i
+                    transform: rotate(90deg)
+            .user-info-logout
+              a
+                i
+                  transition: .3s
+                &:hover
+                  i
+                    color: #ff5266
+
+.content-section
+  padding: 10px
+  padding-bottom: 0
+  .content-controls
+    margin-bottom: 8px
+    display: flex
+    justify-content: space-between
+    .selected-blocks
+      display: flex
+      align-items: center
+    .content-control-buttons
+      display: flex
+      align-items: center
+      .add-order
+        padding: 7px
+      .refresh-button
+        display: flex
+        height: 100%
+        align-items: center
+        justify-content: center
+        i
+          display: flex
+          height: 100%
+          align-items: center
+      .refresh-time
+        margin-right: 8px
+        input
+          padding: 2px 5px
+          text-align: center
+          max-width: 40px
+        .label
+          padding: 5px
+      .refresh-toggle
+        margin-top: 3px
+        label
+          &:before
+            height: 1.3rem
+          &:after
+            height: 1.3rem
+            width: 1.3rem
+
+.ui.inverted.popup.tariff-popup
+  b
+    font-weight: 900
+
+
+#tabs-panel-statusy
+  display: flex
+  padding: 0 10px
+  align-items: center
+  .tabs-arrow
+    flex-shrink: 0
+    cursor: pointer
+    z-index: 8
+    font-size: 12px
+  #ul-statusy
+    z-index: 7
+    margin: 0 3px
+    flex-grow: 0
+    flex-shrink: 1
+    padding: 0
+    overflow: auto
+    overflow-x: hidden
+    overflow-y: hidden
+    list-style: none
+    display: flex
+    align-items: center
+    transition: .3s
+    li
+      flex-shrink: 0
+  div#ul-statusy
+    bottom: -1px
+    position: relative
+    li
+      display: block
+      white-space: nowrap
+      a
+        font-size: 10px
+    .item
+      font-size: 10px
+
+#controls-settings-dropdown.ui.dropdown
+  .menu
+    font-size: 13px
+    > .item
+      font-size: 13px
+      padding: 10px 5px !important
+
+.main-table
+  margin: 10px 10px 0 10px
+  overflow-x: scroll
+  .ui.table
+    table-layout: fixed
+    thead
+      tr
+        th,td
+          position: sticky
+          top: 0
+          z-index: 5
+          border-left: none
+          border-top: none
+          border-bottom: 1px solid rgba(0, 0, 0, .1)
+          border-right: 1px solid rgba(0, 0, 0, .1)
+          font-size: 13px
+          &:first-child
+            left: 0
+            z-index: 10
+        td
+          top: 33px
+          background: white
+
+    th
+      text-align: center
+      white-space: nowrap
+      padding: 8px
+      max-width: 100%
+    tr
+      td
+        padding: 5px !important
+        > .ui.input
+          width: 100%
+          input
+            padding: 2px 5px
+      .product-photo
+        img
+          max-height: none
+          max-width: 100%
+      .main-table-dropdown.ui.dropdown
+        width: 100%
+        display: flex
+        justify-content: space-between
+        &:after
+          position: absolute
+          content: ''
+          bottom: -5px
+          width: 100%
+          height: 1px
+          border-bottom: 1px dashed lightgray
+        .menu
+          top: calc(100% + 10px)
+      .calendar-cell
+        display: flex
+        align-items: center
+        .field
+          width: 100%
+        .ui.popup.calendar
+          z-index: 60
+        input
+          margin: 0 3px
+          padding: 2px 5px
+          width: 100% !important
+          font-size: 13px
+
+    tbody
+
+
+      tr.active-row
+        background: $blue
+        color: white !important
+        p
+          color: white !important
+        .green-text, .blue-text, .red-text
+          color: white
+        .status-cell
+          background: $blue
+        td
+          &:first-child
+            border-left: 8px solid $dark-yellow
+        .order-id
+          p
+            color: white !important
+        a
+          color: white
+      tr
+        .status-cell
+          text-align: center
+          background: #fff
+          position: sticky
+          left: 0
+          top: 0
+          z-index: 5
+          transition: 0.3s
+        .status
+          transition: .3s
+          padding: 4px 5px
+          cursor: auto
+          font-size: 10px
+          text-overflow: ellipsis
+          white-space: nowrap
+          width: 80%
+          overflow: hidden
+          &:hover
+            transform: scale(1.1)
+        td
+          user-select: none
+          position: relative
+          cursor: default
+          transition: .3s
+          border-left: none
+          border-top: none
+          border-bottom: 1px solid rgba(0, 0, 0, .1)
+          border-right: 1px solid rgba(0, 0, 0, .1)
+          &:first-child
+            left: 0
+            z-index: 10
+            position: sticky
+          img
+            max-height: 1em
+          p
+            user-select: none
+            margin-bottom: 0
+            text-overflow: ellipsis
+            max-width: 100%
+            white-space: nowrap
+            overflow: hidden
+            font-size: 12px
+            vertical-align: middle
+          p.additional-info
+            font-size: 11px
+            color: #b3b2b2
+          img
+            margin-right: 5px
+        .order-id
+          p
+            font-size: 10px
+        .product-status
+          label
+            &:before
+              background: #e0e0e0
+          input:checked~label:before
+            background: #21ba45 !important
+        .order-sum
+          font-weight: 900
+          text-align: right
+          p
+            font-size: 13px
+        .discount
+          .old-price
+            text-decoration: line-through
+            margin-right: 3px
+        .products-counter
+          background: orange
+          color: black
+          cursor: pointer
+          padding: 3px 5px
+          font-size: 12px
+          border-radius: 3px
+
+        .order-products
+          .ui.popup
+            ul, ol
+              padding: 0 0 0 12px
+              margin: 0
+            ul
+              list-style: disc
+
+.main-table-pagination
+  padding: 5px
+  font-size: 12px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  .page-orders-number
+    .ui.dropdown
+      min-width: 60px
+      min-height: 0
+      padding: 5px 10px
+      .icon
+        padding: 5px
+  .ui.dropdown:not(.button) > .default.text
+    color: rgba(0, 0, 0, .87)
+
+footer
+  margin-top: auto
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 5px 10px
+  font-size: 12px
+  background: #E2EAF5
+  .footer-settings
+    display: flex
+    align-items: center
+    .language
+      display: flex
+      align-items: center
+      margin-right: 10px
+      b
+        margin-left: 8px
+        display: flex
+        align-items: center
+    .ws
+      display: flex
+      align-items: center
+
+
+
+.ui.horizontal.divider
+  display: flex
+  align-items: center
+  .checkbox
+    margin-right: 25px
+
+.ui.horizontal.divider:after, .ui.horizontal.divider:before
+  display: flex
+  width: 50%
+  height: 1px
+
+.blink
+  animation: blink 1.5s linear infinite
+  font-size: 13px
+  letter-spacing: 0
+  padding: 1px 5px 3px
+  border-radius: 3px
+  display: inline-block
+  width: auto
+
+@keyframes blink
+  0%
+    color: #FFF
+    background: #F00
+  50%
+    color: #FFF
+    background: transparent
+  100%
+    color: #FFF
+    background: #F00
+
+
+.ui.dropdown .menu
+  min-width: 0
+  .item
+    white-space: normal
+
+.ui.bottom.pointing.bottom.dropdown>.menu
+  margin-bottom: 0
+
+
+.ui-alert-content
+  max-width: 400px !important
+
+.mobile-visibility
+  display: none !important
+
+.modal
+  left: auto !important
