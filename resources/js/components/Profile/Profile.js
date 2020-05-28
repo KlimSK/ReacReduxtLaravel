@@ -5,9 +5,9 @@ import Navbar from "./inc/Navbar";
 import Header from "./inc/Header";
 import Footer from "./inc/Footer";
 import OrdersTable from "./Orders/OrdersTable";
-import Products from "./Products/Products";
-import {Route, BrowserRouter} from "react-router-dom";
+import {Route} from "react-router-dom";
 import {Sugar} from "react-preloaders";
+import ProductsContainer from "./Products/ProductsContainer";
 
 
 class Profile extends Component {
@@ -34,7 +34,6 @@ class Profile extends Component {
 
     render() {
 
-        const {children} = this.props;
 
         return (
 
@@ -44,10 +43,9 @@ class Profile extends Component {
                 <section className="main-content">
                     <Header username={this.state.name}/>
 
-                    {/*<Route exact path="/profile" component={OrdersTable}/>
-                        <Route exact path="/products" component={Products}/>*/}
-
-                    {children}
+                    <Route exact path="/" component={OrdersTable}/>
+                    <Route exact path="/products" render={() => <ProductsContainer /> }/>
+                    {/*{children}*/}
 
                     <Footer/>
 

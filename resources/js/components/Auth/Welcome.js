@@ -4,11 +4,13 @@ import Login from "./Login";
 import Register from "./Register";
 
 import renderWelcomePage from "../../src/sign_in"
+import {getLocalStorage} from "./UserFunctions";
 
 class Welcome extends Component{
 
     componentDidMount(){
         renderWelcomePage();
+
     }
 
     render(){

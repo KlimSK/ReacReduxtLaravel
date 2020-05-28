@@ -29,7 +29,7 @@ export default class Products extends Component {
 
     render() {
         let rows = this.props.products.map((product, i) => {
-            return <Product openProductModal={this.props.openProductModal} product={product} key={i}/>
+            return <Product openProductModal={this.props.toggleProductModal} product={product} key={i}/>
         });
 
         return (
@@ -53,7 +53,7 @@ export default class Products extends Component {
 
                 <ProductModal
                     productModalOpened={this.props.productModalOpened}
-                    closeProductModal={this.props.closeProductModal}
+                    closeProductModal={this.props.toggleProductModal}
                     productValue = "test value"
                 />
 

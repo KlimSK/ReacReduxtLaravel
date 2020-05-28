@@ -10,7 +10,7 @@ export default class Product extends Component {
                 </td>
                 <td><p>{this.props.product.name}</p></td>
                 <td>
-
+                    {this.props.product.model}
                 </td>
                 <td></td>
                 <td>
