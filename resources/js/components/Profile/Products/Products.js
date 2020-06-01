@@ -5,6 +5,7 @@ import {mainTableHeight, tableRowClick} from "../inc/tableFunctions";
 import ProductsTableHeader from "./ProductsTableHeader";
 import Product from "./Product";
 import ProductModal from "../Modals/ProductModal";
+import {ProductModalContainer} from "../Modals/ProductModalContainer";
 
 export default class Products extends Component {
 
@@ -51,11 +52,7 @@ export default class Products extends Component {
                 </div>
 
 
-                <ProductModal
-                    productModalOpened={this.props.productModalOpened}
-                    closeProductModal={this.props.toggleProductModal}
-                    productValue = "test value"
-                />
+                <ProductModalContainer/>
 
             </React.Fragment>
         )
