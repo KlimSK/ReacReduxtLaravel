@@ -15,8 +15,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return{
-        updateProductInfo: () => {
-            dispatch(updateProductInfoCreator());
+        updateProductInfo: (name, value) => {
+            dispatch(updateProductInfoCreator(name, value));
         },
 
         closeProductModal: () => {

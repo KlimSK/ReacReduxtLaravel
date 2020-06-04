@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import noPhoto from "../../../../img/no_foto-120x100.png";
+
 
 export default class Product extends Component {
     render(){
@@ -6,7 +8,7 @@ export default class Product extends Component {
             <tr onDoubleClick={this.props.openProductModal}>
                 <td><p>{this.props.product.id}</p></td>
                 <td className="product-photo">
-                    <img src="/img/no_foto-120x100.png" alt=""/>
+                    <img src={this.props.product.photo ? "/images/products/" + this.props.product.photo : noPhoto} alt=""/>
                 </td>
                 <td><p>{this.props.product.name}</p></td>
                 <td>

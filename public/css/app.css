@@ -7701,7 +7701,6 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal {
   padding: 20px;
   border-radius: 5px;
-  top: 15px;
 }
 
 .modal .modal-title {
@@ -8527,6 +8526,10 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
   background-color: #fbbd08 !important;
 }
 
+.modal-novaposhta {
+  top: 15px;
+}
+
 .input-row .input-container {
   margin-left: 10px;
 }
@@ -8869,13 +8872,12 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .chose-photo__label {
-  width: 70px;
-  height: 70px;
+  width: 150px;
+  height: 100px;
   display: block;
-  background-image: url("/img/no_foto-120x100.png");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   margin: 0 auto;
 }
 
@@ -8961,6 +8963,9 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 
 .sign_in_wrap section#formHolder {
   padding: 50px 0;
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
 .sign_in_wrap .brand {

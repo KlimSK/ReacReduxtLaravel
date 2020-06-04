@@ -1,6 +1,6 @@
 import React from "react";
 import Products from "./Products";
-import {toggleProductModalCreator} from "../../../redux/productsReducer";
+import {getProductsCreator, toggleProductModalCreator} from "../../../redux/productsReducer";
 import {connect} from "react-redux";
 
 
@@ -41,6 +41,9 @@ let mapDispatchToProps = (dispatch) => {
     return{
         toggleProductModal: () => {
             dispatch(toggleProductModalCreator());
+        },
+        getProducts: (products) => {
+            dispatch(getProductsCreator(products));
         }
     }
 };

@@ -6,9 +6,11 @@ class OrderModal extends Component {
     render() {
         return (
             <TransitionablePortal open={this.props.modalOpen} transition={{animation: 'scale', duration: 600}}>
-                <Modal size="fullscreen" onClose={this.props.handleClose} open={this.props.modalOpen} className="modal-order" closeOnDimmerClick={true} closeOnEscape={true}>
+                <Modal size="fullscreen" closeIcon
+                       onClose={this.props.handleClose}
+                       open={this.props.modalOpen} className="modal-order modal-novaposhta"
+                       closeOnDimmerClick={true} closeOnEscape={true}>
                     <Modal.Header>
-                        <i className="close icon" onClick={this.props.handleClose}></i>
 
                         <div className="modal-head">
                             <h2 className="modal-title">
