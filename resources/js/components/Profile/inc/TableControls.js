@@ -4,8 +4,15 @@ import React, {Component} from 'react';
 export default class TableControls extends Component {
     constructor() {
         super();
+
+        this.addButton = this.addButton.bind(this);
     }
 
+    addButton(){
+        if(this.props.page === 'products'){
+            this.props.addProductModal();
+        }
+    }
 
     render(){
         return(
@@ -72,8 +79,10 @@ export default class TableControls extends Component {
                             </div>
                         </div>
 
-                        <button className="ui labeled icon button tiny green"><i
-                            className="plus icon"></i> Добавить
+                        <button
+                            onClick={this.addButton}
+                            className="ui labeled icon button tiny green">
+                            <i className="plus icon"></i> Добавить
                         </button>
                     </div>
                 </div>

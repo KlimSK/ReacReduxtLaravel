@@ -21,7 +21,7 @@ export const tableRowClick = () => {
         // если курсор наведён на чекбокс
         //функция не вызывается
 
-
+        console.log('test');
 
         //if (!checkboxBol) {
             if (e.shiftKey) {

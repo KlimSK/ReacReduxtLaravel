@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
+import {Icon} from "semantic-ui-react";
 
-export default class Navbar extends Component{
-    constructor(){
+export default class Navbar extends Component {
+    constructor() {
         super();
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         this.sidebarMenuControls();
         this.mainMenuHeight();
     }
@@ -97,8 +98,17 @@ export default class Navbar extends Component{
         });
     }
 
-    render(){
-        return(
+
+    checkActive(match, location) {
+        //some additional logic to verify you are in the home URI
+        if (!location) return false;
+        const {pathname} = location;
+        console.log(pathname);
+        return pathname === "/";
+    };
+
+    render() {
+        return (
             <aside>
                 <div className="header-logo">
                     <div id="burger">
@@ -106,21 +116,57 @@ export default class Navbar extends Component{
                     </div>
 
                     <a href="#" className="home-link" data-modal-target="modal-ttn-status">
-                        <img src="img/CRM-logo_small.png" alt="" />
-                            LP-CRM
+                        <img src="img/CRM-logo_small.png" alt=""/>
+                        LP-CRM
                     </a>
                 </div>
 
 
                 <nav className="main-menu">
                     <ul className="menu-list">
-                        <li className="no-submenu" title="Рабочий стол">
-                    <span>
-                    <i className="fas fa-desktop"></i>
-                    <NavLink to="/">Рабочий стол</NavLink>
-                    </span>
+                        <li className="no-submenu" title="Orders">
+                            <NavLink exact activeClassName="active" to="/">
+                                <Icon name="money bill alternate outline"/>
+                                Orders
+                            </NavLink>
                         </li>
-                        <li title="Контакты" className="active">
+
+                        <li className="no-submenu" title="Products">
+                            <NavLink exact activeClassName="active" to="/products">
+                                <Icon name="inbox"/>
+                                Products
+                            </NavLink>
+                        </li>
+
+                        <li className="no-submenu" title="Categories">
+                            <NavLink activeClassName="active" to="/categories">
+                                <Icon name="sitemap"/>
+                                Categories
+                            </NavLink>
+                        </li>
+
+                        <li className="no-submenu" title="Currencies">
+                            <NavLink activeClassName="active" to="/currencies">
+                                <Icon name="dollar sign"/>
+                                Currencies
+                            </NavLink>
+                        </li>
+
+                        <li className="no-submenu" title="Statuses">
+                            <NavLink activeClassName="active" to="/statuses">
+                                <Icon name="star"/>
+                                Statuses
+                            </NavLink>
+                        </li>
+
+                        <li className="no-submenu" title="Statistic">
+                            <NavLink activeClassName="active" to="/statistic">
+                                <Icon name="chart line"/>
+                                Statistic
+                            </NavLink>
+                        </li>
+
+                        {/*<li title="Контакты" className="active">
                     <span>
                     <i className="fas fa-users"></i>
                     Контакты
@@ -289,7 +335,7 @@ export default class Navbar extends Component{
                                 <li title="Инструкции (видео)"><a href="#">Инструкция (видео) </a></li>
                                 <li title="Документация API"><a href="#">Документация API </a></li>
                             </ul>
-                        </li>
+                        </li>*/}
                     </ul>
                 </nav>
             </aside>

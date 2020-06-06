@@ -6,7 +6,19 @@ export const addProduct = product => {
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {
-            console.log(res);
+            return res;
+        })
+        .catch(err => {
+            return err;
+        });
+};
+
+
+export const getProducts = () => {
+    return axios
+        .get('api/get_products')
+        .then(res => {
+            return res.data;
         })
         .catch(err => {
             console.log(err);
@@ -14,13 +26,26 @@ export const addProduct = product => {
 };
 
 
-export const getProducts = () => {
+export const loadProductInfo = id => {
     return axios
-        .post('api/get_products')
+        .get('api/get_product_info/' + id)
         .then(res => {
             return res.data;
         })
         .catch(err => {
-            console.log(err);
-        });
+            return err;
+        })
+};
+
+export const updateProduct = (product, id) => {
+    return axios
+        .put('api/update_product/' + id, product, {
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(res => {
+            return res;
+        })
+        .catch(err => {
+            return err;
+        })
 };

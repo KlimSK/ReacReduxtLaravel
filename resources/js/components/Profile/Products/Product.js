@@ -3,9 +3,22 @@ import noPhoto from "../../../../img/no_foto-120x100.png";
 
 
 export default class Product extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.onDoubleClick = this.onDoubleClick.bind(this);
+    }
+
+
+
+    onDoubleClick(){
+        this.props.editProductModal(this.props.product.id);
+    }
+
     render(){
         return(
-            <tr onDoubleClick={this.props.openProductModal}>
+            <tr onDoubleClick={this.onDoubleClick}>
                 <td><p>{this.props.product.id}</p></td>
                 <td className="product-photo">
                     <img src={this.props.product.photo ? "/images/products/" + this.props.product.photo : noPhoto} alt=""/>

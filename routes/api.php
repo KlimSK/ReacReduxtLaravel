@@ -16,7 +16,9 @@ Route::post('logout', 'UserController@logout');
 
 //Products
 Route::post('add_product', 'ProductsController@store');
-Route::post('get_products', 'ProductsController@getProducts');
+Route::get('get_products', 'ProductsController@getProducts');
+Route::get('get_product_info/{id}', 'ProductsController@getProductInfo');
+Route::put('update_product/{id}', 'ProductsController@update');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

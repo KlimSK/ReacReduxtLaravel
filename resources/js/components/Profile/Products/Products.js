@@ -4,7 +4,6 @@ import TableControls from "../inc/TableControls";
 import {mainTableHeight, tableRowClick} from "../inc/tableFunctions";
 import ProductsTableHeader from "./ProductsTableHeader";
 import Product from "./Product";
-import ProductModal from "../Modals/ProductModal";
 import {ProductModalContainer} from "../Modals/ProductModalContainer";
 import {getProducts} from "../../../src/productsFunctions";
 
@@ -13,7 +12,6 @@ export default class Products extends Component {
 
     componentDidMount() {
         mainTableHeight();
-        tableRowClick();
         //this.openProductModal();
 
         getProducts().then(res => {
@@ -21,6 +19,9 @@ export default class Products extends Component {
         });
     }
 
+    componentDidUpdate(){
+        tableRowClick();
+    }
 
     /*openProductModal() {
         let thisClass = this;
@@ -35,17 +36,17 @@ export default class Products extends Component {
 
     render() {
           let rows = this.props.products.map((product, i) => {
-              return <Product openProductModal={this.props.toggleProductModal} product={product} key={i}/>
+              return <Product editProductModal={this.props.editProductModal} product={product} key={i}/>
           });
 
         return (
             <React.Fragment>
                 <div>
-                    <TableControls/>
+                    <TableControls page="products" addProductModal={this.props.addProductModal}/>
                     <div className="main-table products-table">
                         <table className="ui table blue celled">
 
-                            <ProductsTableHeader/>
+                            <ProductsTableHeader />
 
                             <tbody>
 

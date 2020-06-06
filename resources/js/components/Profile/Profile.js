@@ -8,7 +8,8 @@ import OrdersTable from "./Orders/OrdersTable";
 import {Route} from "react-router-dom";
 import {Sugar} from "react-preloaders";
 import ProductsContainer from "./Products/ProductsContainer";
-
+import {SemanticToastContainer} from "react-semantic-toasts";
+import 'react-semantic-toasts/styles/react-semantic-alert.css';
 
 class Profile extends Component {
     constructor() {
@@ -47,11 +48,12 @@ class Profile extends Component {
                     <Route exact path="/products" render={() => <ProductsContainer /> }/>
                     {/*{children}*/}
 
+
                     <Footer/>
 
                 </section>
 
-
+                <SemanticToastContainer position="bottom-right" />
                 <Sugar customLoading={this.state.loading} color={'#4385c2'} background="blur"/>
             </main>
         )
