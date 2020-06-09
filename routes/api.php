@@ -20,6 +20,18 @@ Route::get('get_products', 'ProductsController@getProducts');
 Route::get('get_product_info/{id}', 'ProductsController@getProductInfo');
 Route::put('update_product/{id}', 'ProductsController@update');
 
+//Currencies
+Route::post('add_currency', 'CurrencyController@store');
+Route::get('get_currencies', 'CurrencyController@getCurrencies');
+Route::get('get_currency_info/{id}', 'CurrencyController@getCurrencyInfo');
+Route::put('update_currency/{id}', 'CurrencyController@update');
+
+//Categories
+Route::post('add_category', 'CategoryController@store');
+Route::get('get_categories', 'CategoryController@getCategories');
+Route::get('get_category_info/{id}', 'CategoryController@getCategoryInfo');
+Route::put('update_category/{id}', 'CategoryController@update');
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

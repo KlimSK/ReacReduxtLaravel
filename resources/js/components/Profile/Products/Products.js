@@ -6,6 +6,7 @@ import ProductsTableHeader from "./ProductsTableHeader";
 import Product from "./Product";
 import {ProductModalContainer} from "../Modals/ProductModalContainer";
 import {getProducts} from "../../../src/productsFunctions";
+import Pagination from "../inc/Pagination";
 
 export default class Products extends Component {
 
@@ -22,17 +23,6 @@ export default class Products extends Component {
     componentDidUpdate(){
         tableRowClick();
     }
-
-    /*openProductModal() {
-        let thisClass = this;
-
-        $('.main-table.products-table tbody tr').dblclick(function () {
-            thisClass.setState({
-                productModal: true
-            });
-        });
-    };*/
-
 
     render() {
           let rows = this.props.products.map((product, i) => {
@@ -55,6 +45,7 @@ export default class Products extends Component {
                             </tbody>
                         </table>
                     </div>
+                    <Pagination/>
                 </div>
 
 

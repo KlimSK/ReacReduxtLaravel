@@ -42,7 +42,6 @@ let initalState = {
 
 
 const productsReducer = (state = initalState, action) => {
-
     switch (action.type) {
         case ADD_PRODUCT:
             return {

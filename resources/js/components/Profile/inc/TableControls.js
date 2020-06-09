@@ -12,6 +12,12 @@ export default class TableControls extends Component {
         if(this.props.page === 'products'){
             this.props.addProductModal();
         }
+        else if(this.props.page === 'currencies'){
+            this.props.addCurrencyModal();
+        }
+        else if(this.props.page === 'categories'){
+            this.props.addCategoryModal();
+        }
     }
 
     render(){

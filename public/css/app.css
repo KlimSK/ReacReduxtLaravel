@@ -7773,6 +7773,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .modal-head,
+.modal-currency .modal-head,
 .modal-product .modal-head,
 .modal-wrap .modal-head,
 .main-modal .modal-head,
@@ -7783,6 +7784,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .modal-head .modal-title,
+.modal-currency .modal-head .modal-title,
 .modal-product .modal-head .modal-title,
 .modal-wrap .modal-head .modal-title,
 .main-modal .modal-head .modal-title,
@@ -7791,6 +7793,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .modal-head .order-passed,
+.modal-currency .modal-head .order-passed,
 .modal-product .modal-head .order-passed,
 .modal-wrap .modal-head .order-passed,
 .main-modal .modal-head .order-passed,
@@ -7801,6 +7804,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .modal-head .order-passed label,
+.modal-currency .modal-head .order-passed label,
 .modal-product .modal-head .order-passed label,
 .modal-wrap .modal-head .order-passed label,
 .main-modal .modal-head .order-passed label,
@@ -7809,6 +7813,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .setting-subrow,
+.modal-currency .ui.grid .setting-subrow,
 .modal-product .ui.grid .setting-subrow,
 .modal-wrap .ui.grid .setting-subrow,
 .main-modal .ui.grid .setting-subrow,
@@ -7818,6 +7823,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .setting-subrow .setting-subcol,
+.modal-currency .ui.grid .setting-subrow .setting-subcol,
 .modal-product .ui.grid .setting-subrow .setting-subcol,
 .modal-wrap .ui.grid .setting-subrow .setting-subcol,
 .main-modal .ui.grid .setting-subrow .setting-subcol,
@@ -7827,6 +7833,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .setting-subrow .setting-subcol:first-child,
+.modal-currency .ui.grid .setting-subrow .setting-subcol:first-child,
 .modal-product .ui.grid .setting-subrow .setting-subcol:first-child,
 .modal-wrap .ui.grid .setting-subrow .setting-subcol:first-child,
 .main-modal .ui.grid .setting-subrow .setting-subcol:first-child,
@@ -7835,6 +7842,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .setting-subrow .setting-subcol:last-child,
+.modal-currency .ui.grid .setting-subrow .setting-subcol:last-child,
 .modal-product .ui.grid .setting-subrow .setting-subcol:last-child,
 .modal-wrap .ui.grid .setting-subrow .setting-subcol:last-child,
 .main-modal .ui.grid .setting-subrow .setting-subcol:last-child,
@@ -7843,6 +7851,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .ui.input,
+.modal-currency .ui.grid .ui.input,
 .modal-product .ui.grid .ui.input,
 .modal-wrap .ui.grid .ui.input,
 .main-modal .ui.grid .ui.input,
@@ -7852,6 +7861,8 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 
 .modal-order .ui.grid .ui.input input,
 .modal-order .ui.grid .ui.input textarea,
+.modal-currency .ui.grid .ui.input input,
+.modal-currency .ui.grid .ui.input textarea,
 .modal-product .ui.grid .ui.input input,
 .modal-product .ui.grid .ui.input textarea,
 .modal-wrap .ui.grid .ui.input input,
@@ -7871,6 +7882,8 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 
 .modal-order .ui.grid .ui.input input:focus,
 .modal-order .ui.grid .ui.input textarea:focus,
+.modal-currency .ui.grid .ui.input input:focus,
+.modal-currency .ui.grid .ui.input textarea:focus,
 .modal-product .ui.grid .ui.input input:focus,
 .modal-product .ui.grid .ui.input textarea:focus,
 .modal-wrap .ui.grid .ui.input input:focus,
@@ -7883,6 +7896,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .readonly,
+.modal-currency .ui.grid .readonly,
 .modal-product .ui.grid .readonly,
 .modal-wrap .ui.grid .readonly,
 .main-modal .ui.grid .readonly,
@@ -7893,6 +7907,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products thead tr th,
+.modal-currency .ui.grid .column .modal-order-products thead tr th,
 .modal-product .ui.grid .column .modal-order-products thead tr th,
 .modal-wrap .ui.grid .column .modal-order-products thead tr th,
 .main-modal .ui.grid .column .modal-order-products thead tr th,
@@ -7905,6 +7920,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tbody tr td,
+.modal-currency .ui.grid .column .modal-order-products tbody tr td,
 .modal-product .ui.grid .column .modal-order-products tbody tr td,
 .modal-wrap .ui.grid .column .modal-order-products tbody tr td,
 .main-modal .ui.grid .column .modal-order-products tbody tr td,
@@ -7914,6 +7930,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tbody tr .remove-item,
+.modal-currency .ui.grid .column .modal-order-products tbody tr .remove-item,
 .modal-product .ui.grid .column .modal-order-products tbody tr .remove-item,
 .modal-wrap .ui.grid .column .modal-order-products tbody tr .remove-item,
 .main-modal .ui.grid .column .modal-order-products tbody tr .remove-item,
@@ -7922,6 +7939,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tbody tr .num-cell,
+.modal-currency .ui.grid .column .modal-order-products tbody tr .num-cell,
 .modal-product .ui.grid .column .modal-order-products tbody tr .num-cell,
 .modal-wrap .ui.grid .column .modal-order-products tbody tr .num-cell,
 .main-modal .ui.grid .column .modal-order-products tbody tr .num-cell,
@@ -7930,6 +7948,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tfoot tr td,
+.modal-currency .ui.grid .column .modal-order-products tfoot tr td,
 .modal-product .ui.grid .column .modal-order-products tfoot tr td,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td,
@@ -7939,6 +7958,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tfoot tr td b,
+.modal-currency .ui.grid .column .modal-order-products tfoot tr td b,
 .modal-product .ui.grid .column .modal-order-products tfoot tr td b,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td b,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td b,
@@ -7948,6 +7968,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tfoot tr td .sum,
+.modal-currency .ui.grid .column .modal-order-products tfoot tr td .sum,
 .modal-product .ui.grid .column .modal-order-products tfoot tr td .sum,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td .sum,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td .sum,
@@ -7957,6 +7978,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tfoot tr td:first-child,
+.modal-currency .ui.grid .column .modal-order-products tfoot tr td:first-child,
 .modal-product .ui.grid .column .modal-order-products tfoot tr td:first-child,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td:first-child,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td:first-child,
@@ -7965,6 +7987,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tfoot tr td:first-child a,
+.modal-currency .ui.grid .column .modal-order-products tfoot tr td:first-child a,
 .modal-product .ui.grid .column .modal-order-products tfoot tr td:first-child a,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td:first-child a,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td:first-child a,
@@ -7973,6 +7996,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .modal-order-products tfoot tr td:first-child span,
+.modal-currency .ui.grid .column .modal-order-products tfoot tr td:first-child span,
 .modal-product .ui.grid .column .modal-order-products tfoot tr td:first-child span,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td:first-child span,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td:first-child span,
@@ -7982,6 +8006,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row,
+.modal-currency .ui.grid .column .order-setting-row,
 .modal-product .ui.grid .column .order-setting-row,
 .modal-wrap .ui.grid .column .order-setting-row,
 .main-modal .ui.grid .column .order-setting-row,
@@ -7994,6 +8019,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
+.modal-currency .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
 .modal-product .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
 .modal-wrap .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
 .main-modal .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
@@ -8002,6 +8028,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
+.modal-currency .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
 .modal-product .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
 .modal-wrap .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
 .main-modal .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
@@ -8010,6 +8037,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row i,
+.modal-currency .ui.grid .column .order-setting-row i,
 .modal-product .ui.grid .column .order-setting-row i,
 .modal-wrap .ui.grid .column .order-setting-row i,
 .main-modal .ui.grid .column .order-setting-row i,
@@ -8019,6 +8047,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row label,
+.modal-currency .ui.grid .column .order-setting-row label,
 .modal-product .ui.grid .column .order-setting-row label,
 .modal-wrap .ui.grid .column .order-setting-row label,
 .main-modal .ui.grid .column .order-setting-row label,
@@ -8033,6 +8062,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting,
+.modal-currency .ui.grid .column .order-setting-row .order-setting,
 .modal-product .ui.grid .column .order-setting-row .order-setting,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting,
 .main-modal .ui.grid .column .order-setting-row .order-setting,
@@ -8046,6 +8076,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
@@ -8055,6 +8086,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
@@ -8065,6 +8097,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
@@ -8073,6 +8106,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
@@ -8081,6 +8115,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
@@ -8089,6 +8124,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .input-setting,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .input-setting,
 .modal-product .ui.grid .column .order-setting-row .order-setting .input-setting,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .input-setting,
 .main-modal .ui.grid .column .order-setting-row .order-setting .input-setting,
@@ -8099,6 +8135,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .setting-info,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .setting-info,
 .modal-product .ui.grid .column .order-setting-row .order-setting .setting-info,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .setting-info,
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info,
@@ -8112,6 +8149,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .setting-info span,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .setting-info span,
 .modal-product .ui.grid .column .order-setting-row .order-setting .setting-info span,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .setting-info span,
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info span,
@@ -8121,6 +8159,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
 .modal-product .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
@@ -8129,6 +8168,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
 .modal-product .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
@@ -8137,6 +8177,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
@@ -8152,6 +8193,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
@@ -8162,6 +8204,8 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown .flag,
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown .icon,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown .flag,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown .icon,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .flag,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .icon,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .flag,
@@ -8174,6 +8218,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
@@ -8184,6 +8229,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
@@ -8193,6 +8239,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
@@ -8201,6 +8248,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
@@ -8209,6 +8257,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
@@ -8217,6 +8266,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
@@ -8225,6 +8275,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
@@ -8233,6 +8284,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .menu > .item,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .menu > .item,
 .modal-product .ui.grid .column .order-setting-row .order-setting .menu > .item,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .menu > .item,
 .main-modal .ui.grid .column .order-setting-row .order-setting .menu > .item,
@@ -8244,6 +8296,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
+.modal-currency .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
 .modal-product .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
 .main-modal .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
@@ -8252,6 +8305,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .column .order-setting-row .min-order-setting,
+.modal-currency .ui.grid .column .order-setting-row .min-order-setting,
 .modal-product .ui.grid .column .order-setting-row .min-order-setting,
 .modal-wrap .ui.grid .column .order-setting-row .min-order-setting,
 .main-modal .ui.grid .column .order-setting-row .min-order-setting,
@@ -8263,6 +8317,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .order-setting-row.flex-block,
+.modal-currency .ui.grid .order-setting-row.flex-block,
 .modal-product .ui.grid .order-setting-row.flex-block,
 .modal-wrap .ui.grid .order-setting-row.flex-block,
 .main-modal .ui.grid .order-setting-row.flex-block,
@@ -8271,6 +8326,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .order-setting-row.flex-block .labeled,
+.modal-currency .ui.grid .order-setting-row.flex-block .labeled,
 .modal-product .ui.grid .order-setting-row.flex-block .labeled,
 .modal-wrap .ui.grid .order-setting-row.flex-block .labeled,
 .main-modal .ui.grid .order-setting-row.flex-block .labeled,
@@ -8279,6 +8335,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .order-setting-row.flex-block .labeled label,
+.modal-currency .ui.grid .order-setting-row.flex-block .labeled label,
 .modal-product .ui.grid .order-setting-row.flex-block .labeled label,
 .modal-wrap .ui.grid .order-setting-row.flex-block .labeled label,
 .main-modal .ui.grid .order-setting-row.flex-block .labeled label,
@@ -8288,6 +8345,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .order-setting-row.flex-block .labeled input,
+.modal-currency .ui.grid .order-setting-row.flex-block .labeled input,
 .modal-product .ui.grid .order-setting-row.flex-block .labeled input,
 .modal-wrap .ui.grid .order-setting-row.flex-block .labeled input,
 .main-modal .ui.grid .order-setting-row.flex-block .labeled input,
@@ -8298,6 +8356,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .col.wide,
+.modal-currency .ui.grid .col.wide,
 .modal-product .ui.grid .col.wide,
 .modal-wrap .ui.grid .col.wide,
 .main-modal .ui.grid .col.wide,
@@ -8306,6 +8365,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .col-70,
+.modal-currency .ui.grid .col-70,
 .modal-product .ui.grid .col-70,
 .modal-wrap .ui.grid .col-70,
 .main-modal .ui.grid .col-70,
@@ -8314,6 +8374,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .col-70 .order-setting-row label,
+.modal-currency .ui.grid .col-70 .order-setting-row label,
 .modal-product .ui.grid .col-70 .order-setting-row label,
 .modal-wrap .ui.grid .col-70 .order-setting-row label,
 .main-modal .ui.grid .col-70 .order-setting-row label,
@@ -8323,6 +8384,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .col-70 .order-setting-row .order-setting,
+.modal-currency .ui.grid .col-70 .order-setting-row .order-setting,
 .modal-product .ui.grid .col-70 .order-setting-row .order-setting,
 .modal-wrap .ui.grid .col-70 .order-setting-row .order-setting,
 .main-modal .ui.grid .col-70 .order-setting-row .order-setting,
@@ -8332,6 +8394,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .ui.grid .col-30,
+.modal-currency .ui.grid .col-30,
 .modal-product .ui.grid .col-30,
 .modal-wrap .ui.grid .col-30,
 .main-modal .ui.grid .col-30,
@@ -8340,6 +8403,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .modal-foot .total-sum,
+.modal-currency .modal-foot .total-sum,
 .modal-product .modal-foot .total-sum,
 .modal-wrap .modal-foot .total-sum,
 .main-modal .modal-foot .total-sum,
@@ -8350,6 +8414,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .modal-foot .total-sum span,
+.modal-currency .modal-foot .total-sum span,
 .modal-product .modal-foot .total-sum span,
 .modal-wrap .modal-foot .total-sum span,
 .main-modal .modal-foot .total-sum span,
@@ -8360,6 +8425,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 }
 
 .modal-order .input-note,
+.modal-currency .input-note,
 .modal-product .input-note,
 .modal-wrap .input-note,
 .main-modal .input-note,

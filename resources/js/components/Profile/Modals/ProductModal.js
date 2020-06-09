@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {TransitionablePortal, Modal, Dropdown, Input, TextArea, Form, Select} from 'semantic-ui-react';
 import noPhoto from "../../../../img/no_foto-120x100.png";
 import {addProduct, loadProductInfo, updateProduct} from "../../../src/productsFunctions";
-import {notification} from "../../../src/notifications";
+import {errors, notification} from "../../../src/notifications";
 
 class ProductModal extends Component {
 
@@ -80,15 +80,7 @@ class ProductModal extends Component {
                         notification('success', 'checkmark', 'Success!', 'Product ' + productInfo.name + ' successfully added!');
                     }
                     else {
-                        let errors = JSON.parse(res.data);
-                        let errorsList = '';
-
-                        Object.values(errors).map((value, key) => {
-                            errorsList += "- " + value + "\n";
-                        });
-
-                        notification('error', 'times circle', 'Error!', <p
-                            style={{whiteSpace: "pre-line"}}>{errorsList}</p>);
+                        errors(res);
                     }
                 });
         }
@@ -105,15 +97,7 @@ class ProductModal extends Component {
                         notification('success', 'checkmark', 'Success!', 'Product ' + productInfo.name + ' successfully updated!');
                     }
                     else {
-                        let errors = JSON.parse(res.data);
-                        let errorsList = '';
-
-                        Object.values(errors).map((value, key) => {
-                            errorsList += "- " + value + "\n";
-                        });
-
-                        notification('error', 'times circle', 'Error!', <p
-                            style={{whiteSpace: "pre-line"}}>{errorsList}</p>);
+                        errors(res);
                     }
                 });
         }

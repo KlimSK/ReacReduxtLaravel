@@ -10,6 +10,9 @@ import {Sugar} from "react-preloaders";
 import ProductsContainer from "./Products/ProductsContainer";
 import {SemanticToastContainer} from "react-semantic-toasts";
 import 'react-semantic-toasts/styles/react-semantic-alert.css';
+import CurrenciesContainer from "./Currencies/CurrenciesContainer";
+import CategoriesContainer from "./Categories/CategoriesContainer";
+
 
 class Profile extends Component {
     constructor() {
@@ -46,8 +49,8 @@ class Profile extends Component {
 
                     <Route exact path="/" component={OrdersTable}/>
                     <Route exact path="/products" render={() => <ProductsContainer /> }/>
-                    {/*{children}*/}
-
+                    <Route exact path="/currencies" render={() => <CurrenciesContainer /> }/>
+                    <Route exact path="/categories" render={() => <CategoriesContainer /> }/>
 
                     <Footer/>
 
