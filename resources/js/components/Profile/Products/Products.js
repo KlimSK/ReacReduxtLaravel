@@ -17,11 +17,8 @@ export default class Products extends Component {
 
         getProducts().then(res => {
             this.props.getProducts(res);
+            tableRowClick();
         });
-    }
-
-    componentDidUpdate(){
-        tableRowClick();
     }
 
     render() {

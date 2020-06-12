@@ -81,6 +81,7 @@
 .modal-product,
 .modal-wrap,
 .main-modal,
+.modal-status,
 .modal-category
   .modal-head
     display: flex
@@ -194,6 +195,7 @@
           flex-grow: 0
           display: flex
           align-items: center
+          position: relative
           .main-table-dropdown
             display: flex
             justify-content: space-between
@@ -271,6 +273,17 @@
           max-width: 40%
           margin-right: auto
           margin-left: 4%
+        .status-preview
+          button
+            padding: 4px 5px
+            width: 65px
+            height: 18px
+            font-size: 10px
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+
+
     .order-setting-row.flex-block
       margin: 10px 0
       .labeled

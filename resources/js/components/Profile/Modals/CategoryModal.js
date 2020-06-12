@@ -19,7 +19,6 @@ export default class CategoryModal extends Component {
         if (this.props.categoryInfo.categoryModalType === 'edit' &&
             !this.props.categoryInfo.categoryName) {
 
-            console.log(this.props.categoryInfo.categoryID);
             let loadCategoryInfoToState = this.props.loadCategoryInfo;
 
             loadCategoryInfo(this.props.categoryInfo.categoryID)

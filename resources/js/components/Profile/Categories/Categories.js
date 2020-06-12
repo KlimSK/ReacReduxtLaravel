@@ -15,12 +15,10 @@ export default class Categories extends Component {
 
         getCategories().then(res => {
             this.props.getCategories(res);
+            tableRowClick();
         });
     }
 
-    componentDidUpdate(){
-        tableRowClick();
-    }
 
     render() {
 

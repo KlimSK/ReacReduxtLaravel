@@ -7777,6 +7777,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .modal-head,
 .modal-wrap .modal-head,
 .main-modal .modal-head,
+.modal-status .modal-head,
 .modal-category .modal-head {
   display: flex;
   align-items: center;
@@ -7788,6 +7789,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .modal-head .modal-title,
 .modal-wrap .modal-head .modal-title,
 .main-modal .modal-head .modal-title,
+.modal-status .modal-head .modal-title,
 .modal-category .modal-head .modal-title {
   margin-bottom: 0;
 }
@@ -7797,6 +7799,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .modal-head .order-passed,
 .modal-wrap .modal-head .order-passed,
 .main-modal .modal-head .order-passed,
+.modal-status .modal-head .order-passed,
 .modal-category .modal-head .order-passed {
   display: flex;
   align-items: center;
@@ -7808,6 +7811,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .modal-head .order-passed label,
 .modal-wrap .modal-head .order-passed label,
 .main-modal .modal-head .order-passed label,
+.modal-status .modal-head .order-passed label,
 .modal-category .modal-head .order-passed label {
   cursor: pointer;
 }
@@ -7817,6 +7821,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .setting-subrow,
 .modal-wrap .ui.grid .setting-subrow,
 .main-modal .ui.grid .setting-subrow,
+.modal-status .ui.grid .setting-subrow,
 .modal-category .ui.grid .setting-subrow {
   display: flex;
   justify-content: space-between;
@@ -7827,6 +7832,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .setting-subrow .setting-subcol,
 .modal-wrap .ui.grid .setting-subrow .setting-subcol,
 .main-modal .ui.grid .setting-subrow .setting-subcol,
+.modal-status .ui.grid .setting-subrow .setting-subcol,
 .modal-category .ui.grid .setting-subrow .setting-subcol {
   flex-shrink: 0;
   flex-grow: 0;
@@ -7837,6 +7843,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .setting-subrow .setting-subcol:first-child,
 .modal-wrap .ui.grid .setting-subrow .setting-subcol:first-child,
 .main-modal .ui.grid .setting-subrow .setting-subcol:first-child,
+.modal-status .ui.grid .setting-subrow .setting-subcol:first-child,
 .modal-category .ui.grid .setting-subrow .setting-subcol:first-child {
   flex-basis: 65%;
 }
@@ -7846,6 +7853,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .setting-subrow .setting-subcol:last-child,
 .modal-wrap .ui.grid .setting-subrow .setting-subcol:last-child,
 .main-modal .ui.grid .setting-subrow .setting-subcol:last-child,
+.modal-status .ui.grid .setting-subrow .setting-subcol:last-child,
 .modal-category .ui.grid .setting-subrow .setting-subcol:last-child {
   flex-basis: 34%;
 }
@@ -7855,6 +7863,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .ui.input,
 .modal-wrap .ui.grid .ui.input,
 .main-modal .ui.grid .ui.input,
+.modal-status .ui.grid .ui.input,
 .modal-category .ui.grid .ui.input {
   width: 100%;
 }
@@ -7869,6 +7878,8 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-wrap .ui.grid .ui.input textarea,
 .main-modal .ui.grid .ui.input input,
 .main-modal .ui.grid .ui.input textarea,
+.modal-status .ui.grid .ui.input input,
+.modal-status .ui.grid .ui.input textarea,
 .modal-category .ui.grid .ui.input input,
 .modal-category .ui.grid .ui.input textarea {
   padding: 5px;
@@ -7890,6 +7901,8 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-wrap .ui.grid .ui.input textarea:focus,
 .main-modal .ui.grid .ui.input input:focus,
 .main-modal .ui.grid .ui.input textarea:focus,
+.modal-status .ui.grid .ui.input input:focus,
+.modal-status .ui.grid .ui.input textarea:focus,
 .modal-category .ui.grid .ui.input input:focus,
 .modal-category .ui.grid .ui.input textarea:focus {
   border-bottom: 1px solid #4385c2;
@@ -7900,6 +7913,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .readonly,
 .modal-wrap .ui.grid .readonly,
 .main-modal .ui.grid .readonly,
+.modal-status .ui.grid .readonly,
 .modal-category .ui.grid .readonly {
   text-align: center;
   color: #db514d;
@@ -7911,6 +7925,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products thead tr th,
 .modal-wrap .ui.grid .column .modal-order-products thead tr th,
 .main-modal .ui.grid .column .modal-order-products thead tr th,
+.modal-status .ui.grid .column .modal-order-products thead tr th,
 .modal-category .ui.grid .column .modal-order-products thead tr th {
   background: #ffe767;
   padding: 5px;
@@ -7924,6 +7939,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tbody tr td,
 .modal-wrap .ui.grid .column .modal-order-products tbody tr td,
 .main-modal .ui.grid .column .modal-order-products tbody tr td,
+.modal-status .ui.grid .column .modal-order-products tbody tr td,
 .modal-category .ui.grid .column .modal-order-products tbody tr td {
   padding: 5px;
   font-size: 12px;
@@ -7934,6 +7950,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tbody tr .remove-item,
 .modal-wrap .ui.grid .column .modal-order-products tbody tr .remove-item,
 .main-modal .ui.grid .column .modal-order-products tbody tr .remove-item,
+.modal-status .ui.grid .column .modal-order-products tbody tr .remove-item,
 .modal-category .ui.grid .column .modal-order-products tbody tr .remove-item {
   color: #db2828;
 }
@@ -7943,6 +7960,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tbody tr .num-cell,
 .modal-wrap .ui.grid .column .modal-order-products tbody tr .num-cell,
 .main-modal .ui.grid .column .modal-order-products tbody tr .num-cell,
+.modal-status .ui.grid .column .modal-order-products tbody tr .num-cell,
 .modal-category .ui.grid .column .modal-order-products tbody tr .num-cell {
   text-align: right;
 }
@@ -7952,6 +7970,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tfoot tr td,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td,
+.modal-status .ui.grid .column .modal-order-products tfoot tr td,
 .modal-category .ui.grid .column .modal-order-products tfoot tr td {
   border-top: 1px solid rgba(34, 36, 38, 0.1) !important;
   padding: 5px;
@@ -7962,6 +7981,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tfoot tr td b,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td b,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td b,
+.modal-status .ui.grid .column .modal-order-products tfoot tr td b,
 .modal-category .ui.grid .column .modal-order-products tfoot tr td b {
   font-weight: 900;
   float: right;
@@ -7972,6 +7992,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tfoot tr td .sum,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td .sum,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td .sum,
+.modal-status .ui.grid .column .modal-order-products tfoot tr td .sum,
 .modal-category .ui.grid .column .modal-order-products tfoot tr td .sum {
   font-size: 14px;
   color: #db2828;
@@ -7982,6 +8003,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tfoot tr td:first-child,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td:first-child,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td:first-child,
+.modal-status .ui.grid .column .modal-order-products tfoot tr td:first-child,
 .modal-category .ui.grid .column .modal-order-products tfoot tr td:first-child {
   font-size: 13px;
 }
@@ -7991,6 +8013,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tfoot tr td:first-child a,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td:first-child a,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td:first-child a,
+.modal-status .ui.grid .column .modal-order-products tfoot tr td:first-child a,
 .modal-category .ui.grid .column .modal-order-products tfoot tr td:first-child a {
   float: left;
 }
@@ -8000,6 +8023,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .modal-order-products tfoot tr td:first-child span,
 .modal-wrap .ui.grid .column .modal-order-products tfoot tr td:first-child span,
 .main-modal .ui.grid .column .modal-order-products tfoot tr td:first-child span,
+.modal-status .ui.grid .column .modal-order-products tfoot tr td:first-child span,
 .modal-category .ui.grid .column .modal-order-products tfoot tr td:first-child span {
   float: right;
   font-weight: 900;
@@ -8010,6 +8034,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row,
 .modal-wrap .ui.grid .column .order-setting-row,
 .main-modal .ui.grid .column .order-setting-row,
+.modal-status .ui.grid .column .order-setting-row,
 .modal-category .ui.grid .column .order-setting-row {
   width: 100%;
   display: flex;
@@ -8023,6 +8048,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
 .modal-wrap .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
 .main-modal .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
+.modal-status .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active,
 .modal-category .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active {
   display: flex !important;
 }
@@ -8032,6 +8058,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
 .modal-wrap .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
 .main-modal .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
+.modal-status .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before,
 .modal-category .ui.grid .column .order-setting-row #order-modal-send .ui.popup.calendar.active:before {
   content: none;
 }
@@ -8041,6 +8068,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row i,
 .modal-wrap .ui.grid .column .order-setting-row i,
 .main-modal .ui.grid .column .order-setting-row i,
+.modal-status .ui.grid .column .order-setting-row i,
 .modal-category .ui.grid .column .order-setting-row i {
   color: #4385c2;
   margin-left: 2px;
@@ -8051,6 +8079,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row label,
 .modal-wrap .ui.grid .column .order-setting-row label,
 .main-modal .ui.grid .column .order-setting-row label,
+.modal-status .ui.grid .column .order-setting-row label,
 .modal-category .ui.grid .column .order-setting-row label {
   flex-basis: 35%;
   flex-shrink: 0;
@@ -8066,6 +8095,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting,
 .main-modal .ui.grid .column .order-setting-row .order-setting,
+.modal-status .ui.grid .column .order-setting-row .order-setting,
 .modal-category .ui.grid .column .order-setting-row .order-setting {
   flex-basis: 62%;
   max-width: 62%;
@@ -8073,6 +8103,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
   flex-grow: 0;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .modal-order .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
@@ -8080,6 +8111,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
+.modal-status .ui.grid .column .order-setting-row .order-setting .main-table-dropdown,
 .modal-category .ui.grid .column .order-setting-row .order-setting .main-table-dropdown {
   display: flex;
   justify-content: space-between;
@@ -8090,6 +8122,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
+.modal-status .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text,
 .modal-category .ui.grid .column .order-setting-row .order-setting .main-table-dropdown > span.text {
   white-space: nowrap;
   overflow: hidden;
@@ -8101,6 +8134,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
+.modal-status .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down,
 .modal-category .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .caret.down {
   margin-right: 1px !important;
 }
@@ -8110,6 +8144,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
+.modal-status .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition,
 .modal-category .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition {
   width: 100%;
 }
@@ -8119,6 +8154,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
 .main-modal .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
+.modal-status .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input,
 .modal-category .ui.grid .column .order-setting-row .order-setting .main-table-dropdown .menu.transition .search.input {
   width: 91%;
 }
@@ -8128,6 +8164,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .input-setting,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .input-setting,
 .main-modal .ui.grid .column .order-setting-row .order-setting .input-setting,
+.modal-status .ui.grid .column .order-setting-row .order-setting .input-setting,
 .modal-category .ui.grid .column .order-setting-row .order-setting .input-setting {
   flex-shrink: 0;
   font-size: 12px;
@@ -8139,6 +8176,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .setting-info,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .setting-info,
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info,
+.modal-status .ui.grid .column .order-setting-row .order-setting .setting-info,
 .modal-category .ui.grid .column .order-setting-row .order-setting .setting-info {
   margin-bottom: 0;
   font-size: 12px;
@@ -8153,6 +8191,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .setting-info span,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .setting-info span,
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info span,
+.modal-status .ui.grid .column .order-setting-row .order-setting .setting-info span,
 .modal-category .ui.grid .column .order-setting-row .order-setting .setting-info span {
   font-size: 10px;
   opacity: 0.8;
@@ -8163,6 +8202,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
+.modal-status .ui.grid .column .order-setting-row .order-setting .setting-info.grey,
 .modal-category .ui.grid .column .order-setting-row .order-setting .setting-info.grey {
   opacity: 0.5;
 }
@@ -8172,6 +8212,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
+.modal-status .ui.grid .column .order-setting-row .order-setting .setting-info.grey a,
 .modal-category .ui.grid .column .order-setting-row .order-setting .setting-info.grey a {
   opacity: 1;
 }
@@ -8181,6 +8222,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown {
   width: 100%;
   min-width: 50px;
@@ -8197,6 +8239,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text {
   display: flex;
   align-items: center;
@@ -8212,6 +8255,8 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .icon,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .flag,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .icon,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown .flag,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown .icon,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown .flag,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown .icon {
   margin-right: 5px;
@@ -8222,6 +8267,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown .dropdown.icon {
   padding-top: 5px;
   margin-right: 0;
@@ -8233,6 +8279,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown img,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown img {
   max-height: 1em;
   margin-right: 5px;
@@ -8243,6 +8290,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown input,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown input {
   cursor: pointer !important;
 }
@@ -8252,6 +8300,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown input.search {
   padding: 5px;
 }
@@ -8261,6 +8310,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text {
   cursor: pointer;
 }
@@ -8270,6 +8320,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown .text > .label {
   margin-right: 2px;
 }
@@ -8279,6 +8330,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
 .main-modal .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
+.modal-status .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text,
 .modal-category .ui.grid .column .order-setting-row .order-setting .ui.dropdown:not(.button) > .default.text {
   color: rgba(0, 0, 0, 0.87);
 }
@@ -8288,6 +8340,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .menu > .item,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .menu > .item,
 .main-modal .ui.grid .column .order-setting-row .order-setting .menu > .item,
+.modal-status .ui.grid .column .order-setting-row .order-setting .menu > .item,
 .modal-category .ui.grid .column .order-setting-row .order-setting .menu > .item {
   padding: 5px !important;
   font-size: 12px;
@@ -8300,6 +8353,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
 .modal-wrap .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
 .main-modal .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
+.modal-status .ui.grid .column .order-setting-row .order-setting .menu > .item .flag,
 .modal-category .ui.grid .column .order-setting-row .order-setting .menu > .item .flag {
   margin-right: 5px;
 }
@@ -8309,6 +8363,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .column .order-setting-row .min-order-setting,
 .modal-wrap .ui.grid .column .order-setting-row .min-order-setting,
 .main-modal .ui.grid .column .order-setting-row .min-order-setting,
+.modal-status .ui.grid .column .order-setting-row .min-order-setting,
 .modal-category .ui.grid .column .order-setting-row .min-order-setting {
   flex-basis: 40%;
   max-width: 40%;
@@ -8316,11 +8371,28 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
   margin-left: 4%;
 }
 
+.modal-order .ui.grid .column .order-setting-row .status-preview button,
+.modal-currency .ui.grid .column .order-setting-row .status-preview button,
+.modal-product .ui.grid .column .order-setting-row .status-preview button,
+.modal-wrap .ui.grid .column .order-setting-row .status-preview button,
+.main-modal .ui.grid .column .order-setting-row .status-preview button,
+.modal-status .ui.grid .column .order-setting-row .status-preview button,
+.modal-category .ui.grid .column .order-setting-row .status-preview button {
+  padding: 4px 5px;
+  width: 65px;
+  height: 18px;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .modal-order .ui.grid .order-setting-row.flex-block,
 .modal-currency .ui.grid .order-setting-row.flex-block,
 .modal-product .ui.grid .order-setting-row.flex-block,
 .modal-wrap .ui.grid .order-setting-row.flex-block,
 .main-modal .ui.grid .order-setting-row.flex-block,
+.modal-status .ui.grid .order-setting-row.flex-block,
 .modal-category .ui.grid .order-setting-row.flex-block {
   margin: 10px 0;
 }
@@ -8330,6 +8402,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .order-setting-row.flex-block .labeled,
 .modal-wrap .ui.grid .order-setting-row.flex-block .labeled,
 .main-modal .ui.grid .order-setting-row.flex-block .labeled,
+.modal-status .ui.grid .order-setting-row.flex-block .labeled,
 .modal-category .ui.grid .order-setting-row.flex-block .labeled {
   width: auto;
 }
@@ -8339,6 +8412,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .order-setting-row.flex-block .labeled label,
 .modal-wrap .ui.grid .order-setting-row.flex-block .labeled label,
 .main-modal .ui.grid .order-setting-row.flex-block .labeled label,
+.modal-status .ui.grid .order-setting-row.flex-block .labeled label,
 .modal-category .ui.grid .order-setting-row.flex-block .labeled label {
   flex-basis: auto;
   margin-top: 0;
@@ -8349,6 +8423,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .order-setting-row.flex-block .labeled input,
 .modal-wrap .ui.grid .order-setting-row.flex-block .labeled input,
 .main-modal .ui.grid .order-setting-row.flex-block .labeled input,
+.modal-status .ui.grid .order-setting-row.flex-block .labeled input,
 .modal-category .ui.grid .order-setting-row.flex-block .labeled input {
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   max-width: 40px;
@@ -8360,6 +8435,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .col.wide,
 .modal-wrap .ui.grid .col.wide,
 .main-modal .ui.grid .col.wide,
+.modal-status .ui.grid .col.wide,
 .modal-category .ui.grid .col.wide {
   flex-basis: 41%;
 }
@@ -8369,6 +8445,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .col-70,
 .modal-wrap .ui.grid .col-70,
 .main-modal .ui.grid .col-70,
+.modal-status .ui.grid .col-70,
 .modal-category .ui.grid .col-70 {
   flex-basis: 55%;
 }
@@ -8378,6 +8455,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .col-70 .order-setting-row label,
 .modal-wrap .ui.grid .col-70 .order-setting-row label,
 .main-modal .ui.grid .col-70 .order-setting-row label,
+.modal-status .ui.grid .col-70 .order-setting-row label,
 .modal-category .ui.grid .col-70 .order-setting-row label {
   flex-basis: 27%;
   min-width: 155px;
@@ -8388,6 +8466,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .col-70 .order-setting-row .order-setting,
 .modal-wrap .ui.grid .col-70 .order-setting-row .order-setting,
 .main-modal .ui.grid .col-70 .order-setting-row .order-setting,
+.modal-status .ui.grid .col-70 .order-setting-row .order-setting,
 .modal-category .ui.grid .col-70 .order-setting-row .order-setting {
   flex-basis: auto;
   flex-grow: 1;
@@ -8398,6 +8477,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .ui.grid .col-30,
 .modal-wrap .ui.grid .col-30,
 .main-modal .ui.grid .col-30,
+.modal-status .ui.grid .col-30,
 .modal-category .ui.grid .col-30 {
   flex-basis: 30%;
 }
@@ -8407,6 +8487,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .modal-foot .total-sum,
 .modal-wrap .modal-foot .total-sum,
 .main-modal .modal-foot .total-sum,
+.modal-status .modal-foot .total-sum,
 .modal-category .modal-foot .total-sum {
   text-align: right;
   font-size: 18px;
@@ -8418,6 +8499,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .modal-foot .total-sum span,
 .modal-wrap .modal-foot .total-sum span,
 .main-modal .modal-foot .total-sum span,
+.modal-status .modal-foot .total-sum span,
 .modal-category .modal-foot .total-sum span {
   font-size: 20px;
   color: #db2828;
@@ -8429,6 +8511,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .modal-product .input-note,
 .modal-wrap .input-note,
 .main-modal .input-note,
+.modal-status .input-note,
 .modal-category .input-note {
   font-size: 12px;
   color: rgba(0, 0, 0, 0.7);

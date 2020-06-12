@@ -15,11 +15,8 @@ export default class Currencies extends Component {
 
         getCurrencies().then(res => {
             this.props.getCurrencies(res);
+            tableRowClick();
         });
-    }
-
-    componentDidUpdate() {
-        tableRowClick();
     }
 
 

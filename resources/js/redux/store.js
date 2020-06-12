@@ -5,6 +5,8 @@ import currenciesReducer from "./currenciesReducer";
 import currencyModalReducer from "./currencyModalReducer";
 import categoriesReducer from "./categoriesReducer";
 import categoryModalReducer from "./categoryModalReducer";
+import statusesReducer from "./statusesRecuder";
+import statusModalReducer from "./statusModalReducer";
 
 
 let reducers = combineReducers({
@@ -13,7 +15,9 @@ let reducers = combineReducers({
     currenciesPage: currenciesReducer,
     currencyModal: currencyModalReducer,
     categoriesPage: categoriesReducer,
-    categoryModal: categoryModalReducer
+    categoryModal: categoryModalReducer,
+    statusesPage: statusesReducer,
+    statusModal: statusModalReducer
 });
 
 let store = createStore(reducers);

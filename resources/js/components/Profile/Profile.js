@@ -12,6 +12,7 @@ import {SemanticToastContainer} from "react-semantic-toasts";
 import 'react-semantic-toasts/styles/react-semantic-alert.css';
 import CurrenciesContainer from "./Currencies/CurrenciesContainer";
 import CategoriesContainer from "./Categories/CategoriesContainer";
+import {StatusesContainer} from "./Statuses/StatusesContainer";
 
 
 class Profile extends Component {
@@ -51,6 +52,7 @@ class Profile extends Component {
                     <Route exact path="/products" render={() => <ProductsContainer /> }/>
                     <Route exact path="/currencies" render={() => <CurrenciesContainer /> }/>
                     <Route exact path="/categories" render={() => <CategoriesContainer /> }/>
+                    <Route exact path="/statuses" render={() => <StatusesContainer /> }/>
 
                     <Footer/>
 

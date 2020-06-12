@@ -18,6 +18,9 @@ export default class TableControls extends Component {
         else if(this.props.page === 'categories'){
             this.props.addCategoryModal();
         }
+        else if(this.props.page === 'statuses'){
+            this.props.addStatusModal();
+        }
     }
 
     render(){
