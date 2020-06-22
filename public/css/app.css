@@ -7011,7 +7011,7 @@ main .main-content header .header-controls .header-user-info table .user-info-lo
 #tabs-panel-statusy #ul-statusy {
   z-index: 7;
   margin: 0 3px;
-  flex-grow: 0;
+  flex-grow: 1;
   flex-shrink: 1;
   padding: 0;
   overflow: auto;
@@ -8178,6 +8178,7 @@ aside.min-menu nav > ul > li.sidebar-img-block > ul {
 .main-modal .ui.grid .column .order-setting-row .order-setting .setting-info,
 .modal-status .ui.grid .column .order-setting-row .order-setting .setting-info,
 .modal-category .ui.grid .column .order-setting-row .order-setting .setting-info {
+  min-width: 100px;
   margin-bottom: 0;
   font-size: 12px;
   white-space: nowrap;

@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import ProductModal from "./ProductModal";
 import {
-    closeProductModalCreator,
+    closeProductModalCreator, loadCategoriesCreator, loadCurrenciesCreator,
     loadProductInfoCreator,
     updateProductInfoCreator
 } from "../../../redux/productModalReducer";
@@ -37,6 +37,14 @@ let mapDispatchToProps = (dispatch) => {
 
         loadProductInfo: (product) => {
             dispatch(loadProductInfoCreator(product));
+        },
+
+        loadCategories: (categories) => {
+            dispatch(loadCategoriesCreator(categories));
+        },
+
+        loadCurrencies: (currencies) => {
+            dispatch(loadCurrenciesCreator(currencies));
         }
     }
 };

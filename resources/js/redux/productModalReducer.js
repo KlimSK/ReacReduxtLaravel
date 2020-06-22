@@ -3,21 +3,18 @@ const EDIT_PRODUCT_MODAL = "EDIT_PRODUCT_MODAL";
 const CLOSE_PRODUCT_MODAL = "CLOSE_PRODUCT_MODAL";
 const UPDATE_PRODUCT_INFO = "UPDATE_PRODUCT_INFO";
 const LOAD_PRODUCT_INFO = "LOAD_PRODUCT_INFO";
+const LOAD_CATEGORIES = "LOAD_CATEGORIES";
+const LOAD_CURRENCIES = "LOAD_CURRENCIES";
 
 let initialState = {
     productModalOpened: false,
     productModalType: '',
     productID: 0,
+    isLoaded: false,
 
     categories: [
-        {id: 1, value: 1, text: 'Mobile Phones'},
-        {id: 2, value: 2, text: 'Laptops'},
-        {id: 3, value: 3, text: 'Tablets'}
     ],
     currencies: [
-        {id: 1, value: 1, text: "United States dollar (USD)"},
-        {id: 2, value: 2, text: "Ukrainian hryvnia (UAH)"},
-        {id: 3, value: 3, text: "Russian ruble (RUB)"}
     ],
     productName: '',
     category: '',
@@ -52,7 +49,9 @@ const productModalReducer = (state = initialState, action) => {
                 width: 0,
                 height: 0,
                 weight: 1.00,
-                productID: 0
+                productID: 0,
+                isLoaded: false,
+
             };
 
         case EDIT_PRODUCT_MODAL:
@@ -80,11 +79,14 @@ const productModalReducer = (state = initialState, action) => {
                 width: 0,
                 height: 0,
                 weight: 1.00,
-                productID: 0
+                productID: 0,
+                categories: [],
+                currencies: [],
+                isLoaded: false,
             };
 
-        case LOAD_PRODUCT_INFO:{
-            return{
+        case LOAD_PRODUCT_INFO:
+            return {
                 ...state,
                 productName: action.product.name ? action.product.name : '',
                 category: action.product.category ? action.product.category : '',
@@ -98,8 +100,20 @@ const productModalReducer = (state = initialState, action) => {
                 width: action.product.width ? action.product.width : '',
                 height: action.product.height ? action.product.height : '',
                 weight: action.product.weight ? action.product.weight : ''
-            }
-        }
+            };
+
+
+        case LOAD_CATEGORIES:
+            return {
+                ...state,
+                categories: action.categories
+            };
+
+        case LOAD_CURRENCIES:
+            return {
+                ...state,
+                currencies: action.currencies
+            };
 
         case UPDATE_PRODUCT_INFO:
             return {
@@ -121,6 +135,8 @@ export const addProductModalCreator = () => ({type: ADD_PRODUCT_MODAL});
 export const editProductModalCreator = (id) => ({type: EDIT_PRODUCT_MODAL, id: id});
 export const closeProductModalCreator = () => ({type: CLOSE_PRODUCT_MODAL});
 export const loadProductInfoCreator = (product) => ({type: LOAD_PRODUCT_INFO, product: product});
+export const loadCategoriesCreator = (categories) => ({type: LOAD_CATEGORIES, categories: categories});
+export const loadCurrenciesCreator = (currencies) => ({type: LOAD_CURRENCIES, currencies: currencies});
 
 
 export default productModalReducer;

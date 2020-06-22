@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Currency;
 use App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,6 +18,37 @@ class ProductsController extends Controller
     public function getProducts()
     {
         $products = Products::orderBy('created_at', 'desc')->get();
+
+        foreach ($products as $product) {
+            if ($product->category_id)
+                $product->category_name = Category::find($product->category_id)['name'];
+            if ($product->currency_id)
+                $product->currency_name = Currency::find($product->currency_id)['shortName'];
+        }
+
+        return response()->json($products, 201);
+    }
+
+
+    public function getProductsFromCat($id)
+    {
+
+
+        if ($id)
+            $products = Products::orderBy('created_at', 'desc')->where("category_id", "=", $id)->get();
+        else
+            $products = Products::orderBy('created_at', 'desc')->where("category_id", "=", "")
+                ->orWhereNull("category_id")->get();
+
+        foreach ($products as $product) {
+            if ($product->category_id)
+                $product->category_name = Category::find($product->category_id)['name'];
+            if ($product->currency_id){
+                $product->currency_name = Currency::find($product->currency_id)['shortName'];
+                $product->currency_symbol = Currency::find($product->currency_id)['symbol'];
+
+            }
+        }
 
         return response()->json($products, 201);
     }
@@ -57,7 +90,6 @@ class ProductsController extends Controller
         $product->width = $request->json()->get('width');
 
 
-
         $photoName = '';
 
         if ($request->json()->get('photo')) {
@@ -68,17 +100,21 @@ class ProductsController extends Controller
             $nextId = $statement[0]->Auto_increment;
 
             //$photoName = time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
-            $photoName = "product-" . $nextId  . '-' . time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+            $photoName = "product-" . $nextId . '-' . time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
 
             Image::make($request->json()->get('photo'))->save(public_path('images/') . "products/" . $photoName);
         }
         $product->photo = $photoName;
 
 
-
         $product->save();
 
-        return response()->json(array('id' => $product->id, 'photo' => $photoName),  201);
+        return response()->json(array(
+            'id' => $product->id,
+            'photo' => $photoName,
+            'currency_name' => Currency::find($product->currency_id)['shortName'],
+            'category_name' => Category::find($product->category_id)['name']
+        ), 201);
     }
 
 
@@ -115,11 +151,11 @@ class ProductsController extends Controller
 
         if ($request->json()->get('photo') !== $oldProductPhoto) {
 
-            File::delete(public_path('images/')  . "products/" . $oldProductPhoto );
+            File::delete(public_path('images/') . "products/" . $oldProductPhoto);
 
             $image = $request->json()->get('photo');
 
-            $photoName = "product-" . $id  . '-' . time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+            $photoName = "product-" . $id . '-' . time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
 
             Image::make($request->json()->get('photo'))->save(public_path('images/') . "products/" . $photoName);
         }
@@ -127,7 +163,12 @@ class ProductsController extends Controller
 
         $product->update();
 
-        return response()->json(array('id' => $id, 'photo' => $photoName),  201);
+        return response()->json(array(
+            'id' => $id,
+            'photo' => $photoName,
+            'currency_name' => Currency::find($product->currency_id)['shortName'],
+            'category_name' => Category::find($product->category_id)['name']
+        ), 201);
     }
 
     /**

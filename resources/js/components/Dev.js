@@ -1,7 +1,7 @@
 import React from "react";
 import Welcome from "./Auth/Welcome";
 import Profile from "./Profile/Profile";
-import OrdersTable from "./Profile/Orders/OrdersTable";
+import Orders from "./Profile/Orders/Orders";
 import Products from "./Profile/Products/Products";
 import {getLocalStorage} from "./Auth/UserFunctions";
 import {Route, Router, Switch} from "react-router-dom";

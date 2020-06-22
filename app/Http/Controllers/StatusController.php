@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -9,18 +10,20 @@ use Illuminate\Support\Facades\Validator;
 
 class StatusController extends Controller
 {
-
-
     public function getStatuses(){
         $statuses = Status::orderBy('created_at', 'ASC')->get();
+
+        foreach($statuses as $status)
+            $status->amount = Order::where('status_id', '=', $status['id'])->get()->count();
+
         return response()->json($statuses, 201);
     }
 
 
     public function getStatusInfo($id) {
-        $category = Status::where('id', '=', $id)->get();
+        $status = Status::where('id', '=', $id)->get();
 
-        return response()->json($category, 201);
+        return response()->json($status, 201);
     }
 
     public function store(Request $request)

@@ -21,10 +21,20 @@ export const getProducts = () => {
             return res.data;
         })
         .catch(err => {
-            console.log(err);
+            return err;
         });
 };
 
+export const getProductsFromCat = id => {
+    return axios
+        .get('api/get_products_from_cat/' + id)
+        .then(res => {
+            return res.data;
+        })
+        .catch(err => {
+            return err;
+        });
+};
 
 export const loadProductInfo = id => {
     return axios

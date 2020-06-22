@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {TransitionablePortal, Modal, Dropdown, Input, TextArea, Form, Select} from 'semantic-ui-react';
+import {TransitionablePortal, Modal, Input, TextArea, Form, Select} from 'semantic-ui-react';
 import noPhoto from "../../../../img/no_foto-120x100.png";
 import {addProduct, loadProductInfo, updateProduct} from "../../../src/productsFunctions";
 import {errors, notification} from "../../../src/notifications";
+import {getCategories} from "../../../src/categoriesFunctions";
+import {getCurrencies} from "../../../src/currenciesFunctions";
 
 class ProductModal extends Component {
 
@@ -18,14 +20,54 @@ class ProductModal extends Component {
 
 
     componentDidUpdate() {
+        if (!this.props.productInfo.categories.length) {
+            getCategories().then(res => {
+                let categories = [
+                    {id: 0, value: 0, text: "Not chosen"}
+                ];
+                res.map((cat, key) => {
+                    categories = [
+                        ...categories,
+                        {
+                            id: cat.id,
+                            value: cat.id,
+                            text: cat.name
+                        }
+                    ]
+                });
+                this.props.loadCategories(categories);
+            });
+        }
+
+        if (!this.props.productInfo.currencies.length) {
+            getCurrencies().then(res => {
+                let currencies = [];
+                res.map((cur, key) => {
+                    currencies = [
+                        ...currencies,
+                        {
+                            id: cur.id,
+                            value: cur.id,
+                            text: cur.name + " (" + cur.shortName + ")"
+                        }
+                    ]
+                });
+                this.props.loadCurrencies(currencies);
+            });
+        }
+
         if (this.props.productInfo.productModalType === 'edit' &&
-            !this.props.productInfo.name &&
-            !this.props.productInfo.currency_id &&
-            !this.props.productInfo.price) {
+            !this.props.productInfo.isLoaded) {
 
             let loadProductInfoToState = this.props.loadProductInfo;
+            let updateProductInfo = this.props.updateProductInfo;
             loadProductInfo(this.props.productInfo.productID)
                 .then(res => {
+
+                    updateProductInfo('isLoaded', true);
+
+                    console.log(this.props.productInfo.isLoaded);
+
                     let product = res[0];
                     loadProductInfoToState({
                         name: product.name,
@@ -43,6 +85,8 @@ class ProductModal extends Component {
                     });
                 });
         }
+
+
     }
 
 
@@ -61,7 +105,7 @@ class ProductModal extends Component {
             length: product.length,
             width: product.width,
             currency_id: product.currency,
-            amount: product.amount
+            amount: product.amount ? product.amount : 1
         };
 
 
@@ -76,6 +120,8 @@ class ProductModal extends Component {
                         closeModal();
                         productInfo.id = res.data.id;
                         productInfo.photo = res.data.photo;
+                        productInfo.category_name = res.data.category_name;
+                        productInfo.currency_name = res.data.currency_name;
                         addProductToState(productInfo);
                         notification('success', 'checkmark', 'Success!', 'Product ' + productInfo.name + ' successfully added!');
                     }
@@ -91,6 +137,8 @@ class ProductModal extends Component {
                         closeModal();
                         productInfo.id = res.data.id;
                         productInfo.photo = res.data.photo;
+                        productInfo.category_name = res.data.category_name;
+                        productInfo.currency_name = res.data.currency_name;
 
                         updateProductInState(productInfo);
 
@@ -130,9 +178,9 @@ class ProductModal extends Component {
         let title = '';
         let previewPhoto = noPhoto;
 
-        if (this.props.productInfo.productModalType === 'edit'){
+        if (this.props.productInfo.productModalType === 'edit') {
             title = 'Update product [' + this.props.productInfo.productID + ']: ' + this.props.productInfo.productName;
-            if(this.props.productInfo.photo)
+            if (this.props.productInfo.photo)
                 previewPhoto = "/images/products/" + this.props.productInfo.photo;
         }
         else if (this.props.productInfo.productModalType === 'add')

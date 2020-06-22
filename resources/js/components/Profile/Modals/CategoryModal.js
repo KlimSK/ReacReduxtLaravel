@@ -17,12 +17,15 @@ export default class CategoryModal extends Component {
     componentDidUpdate(){
 
         if (this.props.categoryInfo.categoryModalType === 'edit' &&
-            !this.props.categoryInfo.categoryName) {
+            !this.props.categoryInfo.isLoaded) {
 
             let loadCategoryInfoToState = this.props.loadCategoryInfo;
+            let updateCategoryInfo = this.props.updateCategoryInfo;
 
             loadCategoryInfo(this.props.categoryInfo.categoryID)
                 .then(res => {
+                    updateCategoryInfo('isLoaded', true);
+
                     let category = res[0];
                     loadCategoryInfoToState({
                         name: category.name,

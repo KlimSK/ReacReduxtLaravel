@@ -4,7 +4,7 @@ import {getProfile} from "../Auth/UserFunctions";
 import Navbar from "./inc/Navbar";
 import Header from "./inc/Header";
 import Footer from "./inc/Footer";
-import OrdersTable from "./Orders/OrdersTable";
+import Orders from "./Orders/Orders";
 import {Route} from "react-router-dom";
 import {Sugar} from "react-preloaders";
 import ProductsContainer from "./Products/ProductsContainer";
@@ -13,6 +13,7 @@ import 'react-semantic-toasts/styles/react-semantic-alert.css';
 import CurrenciesContainer from "./Currencies/CurrenciesContainer";
 import CategoriesContainer from "./Categories/CategoriesContainer";
 import {StatusesContainer} from "./Statuses/StatusesContainer";
+import {OrdersContainer} from "./Orders/OrdersContainer";
 
 
 class Profile extends Component {
@@ -48,7 +49,7 @@ class Profile extends Component {
                 <section className="main-content">
                     <Header username={this.state.name}/>
 
-                    <Route exact path="/" component={OrdersTable}/>
+                    <Route exact path="/" render={() => <OrdersContainer />}/>
                     <Route exact path="/products" render={() => <ProductsContainer /> }/>
                     <Route exact path="/currencies" render={() => <CurrenciesContainer /> }/>
                     <Route exact path="/categories" render={() => <CategoriesContainer /> }/>

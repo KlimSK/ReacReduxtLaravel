@@ -7,6 +7,9 @@ import categoriesReducer from "./categoriesReducer";
 import categoryModalReducer from "./categoryModalReducer";
 import statusesReducer from "./statusesRecuder";
 import statusModalReducer from "./statusModalReducer";
+import ordersReducer from "./ordersReducer";
+import orderModalReducer from "./orderModalReducer";
+import orderProductModalReducer from "./orderProductModalReducer";
 
 
 let reducers = combineReducers({
@@ -17,7 +20,10 @@ let reducers = combineReducers({
     categoriesPage: categoriesReducer,
     categoryModal: categoryModalReducer,
     statusesPage: statusesReducer,
-    statusModal: statusModalReducer
+    statusModal: statusModalReducer,
+    ordersPage: ordersReducer,
+    orderModal: orderModalReducer,
+    orderProductModal: orderProductModalReducer
 });
 
 let store = createStore(reducers);

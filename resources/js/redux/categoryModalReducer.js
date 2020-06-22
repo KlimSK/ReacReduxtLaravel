@@ -7,6 +7,7 @@ const LOAD_CATEGORY_INFO = "LOAD_CATEGORY_INFO";
 let initialState = {
     categoryModalOpened: false,
     categoryModalType: '',
+    isLoaded: false,
 
     categoryID: 0,
     categoryName: '',
@@ -25,6 +26,7 @@ const categoryModalReducer = (state = initialState, action) => {
                 categoryID: 0,
                 categoryName: '',
                 date: '',
+                isLoaded: false
             };
 
         case EDIT_CATEGORY_MODAL:
@@ -42,6 +44,7 @@ const categoryModalReducer = (state = initialState, action) => {
                 categoryID: 0,
                 categoryName: '',
                 date: '',
+                isLoaded: false
             };
         case UPDATE_CATEGORY_INFO:
             return {

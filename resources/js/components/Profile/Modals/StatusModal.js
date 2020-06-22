@@ -23,11 +23,13 @@ export default class StatusModal extends Component {
 
     componentDidUpdate() {
         if (this.props.statusInfo.statusModalType === 'edit' &&
-            !this.props.statusInfo.statusName) {
+            !this.props.statusInfo.isLoaded) {
             let loadStatusInfoToState = this.props.loadStatusInfo;
+            let updateStatusInfo = this.props.updateStatusInfo;
 
             loadStatusInfo(this.props.statusInfo.statusID)
                 .then(res => {
+                    updateStatusInfo("isLoaded", true);
                     let status = res[0];
                     loadStatusInfoToState({
                         name: status.name,

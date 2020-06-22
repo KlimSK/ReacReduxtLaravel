@@ -18,23 +18,22 @@ export default class CurrencyModal extends Component {
 
 
         if (this.props.currencyInfo.currencyModalType === 'edit' &&
-            !this.props.currencyInfo.currencyName &&
-            !this.props.currencyInfo.symbol &&
-            !this.props.currencyInfo.shortName) {
+            !this.props.currencyInfo.isLoaded) {
 
             let loadCurrencyInfoToState = this.props.loadCurrencyInfo;
-
-
-            console.log(this.props.currencyInfo.currencyID);
+            let updateCurrencyInfo = this.props.updateCurrencyInfo;
 
             loadCurrencyInfo(this.props.currencyInfo.currencyID)
                 .then(res => {
+                    updateCurrencyInfo('isLoaded', true);
+
                     let currency = res[0];
                     loadCurrencyInfoToState({
                         name: currency.name,
                         symbol: currency.symbol,
                         shortName: currency.shortName,
                     });
+
                 });
         }
     }

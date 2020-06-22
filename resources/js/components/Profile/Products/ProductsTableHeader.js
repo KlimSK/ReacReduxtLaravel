@@ -11,19 +11,14 @@ export default class ProductsTableHeader extends Component {
             <thead>
             <tr>
                 <th width="65">id</th>
-                <th width="90">Фото</th>
-                <th width="340">Название</th>
-                <th width="90">Модель</th>
-                <th width="90">Артикул</th>
-                <th width="150">Категория</th>
-                <th width="150">Цена (база)</th>
-                <th width="75">Валюта</th>
-                <th width="80">Статус</th>
-                <th width="100">Цена (закуп.)</th>
-                <th width="100">Кол-во</th>
-                <th width="80">В заказах</th>
-                <th width="160">Производитель</th>
-                <th width="120">Сумма (закуп.)</th>
+                <th width="90">Photo</th>
+                <th width="340">Name</th>
+                <th width="90">Model</th>
+                <th width="120">Category</th>
+                <th width="150">Price</th>
+                <th width="75">Currency</th>
+                <th width="100">Amount</th>
+                <th width="80">In process</th>
             </tr>
 
 
@@ -35,11 +30,6 @@ export default class ProductsTableHeader extends Component {
                 </td>
                 <td>
 
-                </td>
-                <td>
-                    <div className="ui input">
-                        <input type="text"/>
-                    </div>
                 </td>
                 <td>
                     <div className="ui input">
@@ -77,9 +67,7 @@ export default class ProductsTableHeader extends Component {
                         <input type="text"/>
                     </div>
                 </td>
-                <td>
 
-                </td>
                 <td>
                     <div className="ui dropdown mini main-table-dropdown">
                         <input type="hidden" name="filters"/>
@@ -93,42 +81,19 @@ export default class ProductsTableHeader extends Component {
                         </div>
                     </div>
                 </td>
+
                 <td>
                     <div className="ui input">
                         <input type="text"/>
                     </div>
                 </td>
+
                 <td>
-                    <div className="ui dropdown mini main-table-dropdown">
-                        <input type="hidden" name="filters"/>
-                        <span className="text">Все</span> <i className="ui icon caret down"></i>
-                        <div className="menu">
-                            <div className="scrolling menu">
-                                <div className="item" data-value="important">Все</div>
-                                <div className="item" data-value="important">(+) Есть</div>
-                                <div className="item" data-value="announcement">(0) Нет</div>
-                                <div className="item" data-value="announcement">(-) Минус</div>
-                            </div>
-                        </div>
+                    <div className="ui input">
+                        <input type="text"/>
                     </div>
                 </td>
-                <td>
 
-                </td>
-                <td>
-                    <div className="ui dropdown mini main-table-dropdown">
-                        <input type="hidden" name="filters"/>
-                        <span className="text">Все</span> <i className="ui icon caret down"></i>
-                        <div className="menu">
-                            <div className="scrolling menu">
-                                <div className="item" data-value="important">Все</div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td>
-
-                </td>
 
             </tr>
 

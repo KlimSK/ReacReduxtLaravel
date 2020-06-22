@@ -6,6 +6,9 @@ const LOAD_CURRENCY_INFO = "LOAD_CURRENCY_INFO";
 
 let initialState = {
     currencyModalOpened: false,
+
+    isLoaded: false,
+
     currencyModalType: '',
     currencyID: 0,
 
@@ -25,6 +28,7 @@ const currencyModalReducer = (state = initialState, action) => {
                 currencyName: '',
                 symbol: '',
                 shortName: '',
+                isLoaded: false
             };
 
         case EDIT_CURRENCY_MODAL:
@@ -44,6 +48,7 @@ const currencyModalReducer = (state = initialState, action) => {
                 currencyName: '',
                 symbol: '',
                 shortName: '',
+                isLoaded: false
             };
 
         case LOAD_CURRENCY_INFO:{

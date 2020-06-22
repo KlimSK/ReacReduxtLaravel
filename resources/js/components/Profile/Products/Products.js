@@ -13,7 +13,7 @@ export default class Products extends Component {
 
     componentDidMount() {
         mainTableHeight();
-        //this.openProductModal();
+
 
         getProducts().then(res => {
             this.props.getProducts(res);

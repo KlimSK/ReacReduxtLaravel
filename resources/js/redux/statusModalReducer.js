@@ -8,6 +8,8 @@ const LOAD_STATUS_INFO = "LOAD_STATUS_INFO";
 let initialState = {
     statusModalOpened: false,
     statusModalType: '',
+    isLoaded: false,
+
     statusID: 0,
     statusName: "",
     color: "#1976d2",
@@ -31,7 +33,8 @@ const statusModalReducer = (state = initialState, action) =>{
                 color: "#1976d2",
                 colorText: "#fff",
                 colorPopup: false,
-                colorTextPopup: false
+                colorTextPopup: false,
+                isLoaded: false,
             };
 
         case EDIT_STATUS_MODAL:
@@ -52,7 +55,8 @@ const statusModalReducer = (state = initialState, action) =>{
                 color: "#1976d2",
                 colorText: "#fff",
                 colorPopup: false,
-                colorTextPopup: false
+                colorTextPopup: false,
+                isLoaded: false,
             };
 
         case UPDATE_STATUS_INFO:

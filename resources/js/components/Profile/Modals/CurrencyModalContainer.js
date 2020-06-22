@@ -7,7 +7,6 @@ import {
     loadCurrencyModalCreator,
     updateCurrencyInfoModalCreator
 } from "../../../redux/currencyModalReducer";
-import {addProductCreator, updateProductCreator} from "../../../redux/productsReducer";
 import {addCurrencyCreator, updateCurrencyCreator} from "../../../redux/currenciesReducer";
 
 

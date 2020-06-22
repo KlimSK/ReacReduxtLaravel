@@ -1,116 +1,200 @@
 import React, {Component} from 'react';
-import {TransitionablePortal, Modal} from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import {TransitionablePortal, Modal, Input, Select, Form, TextArea, Icon} from 'semantic-ui-react';
+import {getStatuses} from "../../../src/statusesFunctions";
+import {OrderProductModalContainer} from "./OrderProductModalContainer";
+import {addOrder, updateOrder} from "../../../src/ordersFunctions";
+import {errors, notification} from "../../../src/notifications";
 
 class OrderModal extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.getTotalAmount = this.getTotalAmount.bind(this);
+        this.getTotalPrice = this.getTotalPrice.bind(this);
+    }
+
+    onSubmit() {
+        let order = this.props.orderInfo;
+
+        let orderInfo = {
+            products: order.products,
+            total_price: this.getTotalPrice(),
+            customer: order.customer,
+            phone: order.phone,
+            email: order.email,
+            status: order.status,
+            comment: order.comment,
+            utm_source: order.utm_source,
+            utm_medium: order.utm_medium,
+            utm_term: order.utm_term,
+            utm_content: order.utm_content,
+            utm_campaign: order.utm_campaign,
+            delivery_id: order.delivery_id,
+            waybill: order.waybill,
+            address: order.address,
+            ip: order.ip,
+            website: order.website,
+            additional_field_1: order.additional_field_1,
+            additional_field_2: order.additional_field_2,
+            additional_field_3: order.additional_field_3,
+            additional_field_4: order.additional_field_4,
+        };
+
+        let closeModal = this.props.closeOrderModal;
+        let addOrderToState = this.props.addOrderToState;
+        let updateOrderInState = this.props.updateOrderInState;
+
+        if (this.props.orderInfo.orderModalType === "add") {
+            addOrder(orderInfo)
+                .then(res => {
+                    if (res.status !== 244) {
+                        closeModal();
+
+                        orderInfo.products = order.products.map(prod => {
+                            return {
+                                product_id: prod.id,
+                                amount: prod.amount,
+                                price: prod.price,
+                                order_id: res.data.id,
+                                name: prod.name,
+                                category: prod.category,
+                                currency: prod.currency
+                            }
+                        });
+                        orderInfo.status_id = orderInfo.status;
+                        orderInfo.id = res.data.id;
+                        addOrderToState(orderInfo);
+                        notification('success', 'checkmark', 'Success!', 'Order successfully added!');
+                    }
+                    else {
+                        errors(res);
+                    }
+                });
+        }
+
+        else if (this.props.orderInfo.orderModalType === "edit") {
+            orderInfo.previousProducts = this.props.orderInfo.previousProducts;
+            updateOrder(orderInfo, this.props.orderInfo.orderID)
+                .then(res => {
+                    if (res.status !== 244) {
+                        closeModal();
+
+                        console.log(res);
+
+                        orderInfo.products = order.products.map(prod => {
+                            return {
+                                product_id: prod.product_id,
+                                amount: prod.amount,
+                                price: prod.price,
+                                order_id: res.data.id,
+                                name: prod.name,
+                                category: prod.category,
+                                currency: prod.currency
+                            }
+                        });
+                        orderInfo.status_id = orderInfo.status;
+                        orderInfo.id = res.data.id;
+                        updateOrderInState(orderInfo);
+                        notification('success', 'checkmark', 'Success!', 'Order successfully added!');
+                    }
+                    else {
+                        errors(res);
+                    }
+                });
+        }
+    }
+
+    getTotalAmount() {
+        return this.props.orderInfo.products.reduce((a, b) => a + (parseInt(b['amount']) || 0), 0);
+    }
+
+    getTotalPrice() {
+        return this.props.orderInfo.products.reduce((a, b) => a + (parseFloat(b['price']) * parseInt(b['amount']) || 0), 0);
+    }
+
+    onChange(e, data) {
+        if (e.target.name && e.target.value)
+            this.props.updateOrderInfo(e.target.name, e.target.value);
+        else
+            this.props.updateOrderInfo(data.name, data.value);
+    }
+
+
     render() {
+
+        let products = this.props.orderInfo.products.map((product, key) => {
+            return <tr key={key}>
+                <td>{product.product_id}</td>
+                <td><a href="#"
+                       onClick={() => {
+                           this.props.editOrderProductModal(product)
+                       }}>
+                    {product.name}
+                </a></td>
+                <td className="num-cell">{product.price} {product.currency}</td>
+                <td className="num-cell">{product.amount}</td>
+                <td className="num-cell">
+                    {parseFloat(product.price) * parseInt(product.amount)} {product.currency}
+                </td>
+                <td><a href="#"
+                       onClick={() => {
+                           this.props.removeProduct(product.id)
+                       }}
+                       className="remove-item"><Icon name="times"/></a>
+                </td>
+            </tr>
+        });
+
+
         return (
-            <TransitionablePortal open={this.props.modalOpen} transition={{animation: 'scale', duration: 600}}>
-                <Modal size="fullscreen" closeIcon
-                       onClose={this.props.handleClose}
-                       open={this.props.modalOpen} className="modal-order modal-novaposhta"
-                       closeOnDimmerClick={true} closeOnEscape={true}>
-                    <Modal.Header>
 
-                        <div className="modal-head">
-                            <h2 className="modal-title">
-                                {this.props.productValue} Заказ № 262469 [15586024052] от 2019-05-23 12:06:45 (Изменено: 2019-06-10 20:19:07)
-                            </h2>
+            <Modal size="fullscreen" closeIcon
+                   onClose={this.props.closeOrderModal}
+                   open={this.props.modalOpened} className="modal-order modal-novaposhta"
+                   closeOnDimmerClick={true} closeOnEscape={true}>
+                <Modal.Header>
 
-                            <div className="order-passed">
+                    <div className="modal-head">
+                        <h2 className="modal-title">
+                            Заказ № 262469 [15586024052] от 2019-05-23 12:06:45 (Изменено: 2019-06-10 20:19:07)
+                        </h2>
 
-                                <div className="ui toggle checkbox">
+                    </div>
 
-                                    <input type="checkbox" name="order-passed" id="order-passed"/>
-                                    <label htmlFor="order-passed"><i className="ui icon flag checkered"></i> Сдано в
-                                        заказ</label>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="modal-order-buttons">
-                            <button id="create-notification"
-                                    className="ui labeled icon button mini open-secondary-modal"
-                                    data-modal-target="modal-order-notification"><i className="bell icon"></i> Напомнить
-                            </button>
-                            <button className="ui labeled icon button mini"><i className="envelope icon"></i> SMS
-                            </button>
-                            <div className="ui floating dropdown labeled icon button mini">
-                                <i className="phone icon"></i>
-                                <span className="text">Позвонить</span>
-                                <div className="menu">
-                                    <div className="item">SIP ТЕЛЕФОН</div>
-                                    <div className="item">BINOTEL</div>
-                                </div>
-                            </div>
-                        </div>
-                    </Modal.Header>
-                    <Modal.Content>
+                </Modal.Header>
+                <Modal.Content>
+                    <Form>
                         <div className="ui grid">
                             <div className="five wide column">
 
                                 <div className="order-setting-block">
-                                    <div className="ui horizontal divider">Контактная информация</div>
+                                    <div className="ui horizontal divider">Contact information</div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Страна <i className="ui icon"></i>
+                                            Customer <i className="ui icon male"></i>
                                         </label>
-
                                         <div className="order-setting">
-                                            <div className="ui fluid selection dropdown">
-                                                <input type="hidden" name="country"/>
-                                                <i className="dropdown icon"></i>
-                                                <div className="default text">Выберите страну</div>
-                                                <div className="menu">
 
-                                                    <div className="item" data-value="af"><img
-                                                        src="img/flags/no_icon.ico"
-                                                        alt=""/>Не
-                                                        указано
-                                                    </div>
-                                                    <div className="item" data-value="af"><i className="af flag"></i>Афганистан
-                                                    </div>
-                                                    <div className="item" data-value="af"><i
-                                                        className="ui icon globe"></i>Все
-                                                    </div>
-                                                    <div className="item" data-value="by"><i className="by flag"></i>Беларусь
-                                                    </div>
-                                                    <div className="item" data-value="md"><i className="md flag"></i>Молдова
-                                                    </div>
-                                                    <div className="item" data-value="ae"><i className="ae flag"></i>Арабские
-                                                        Эмираты
-                                                    </div>
-                                                    <div className="item" data-value="hu"><i className="hu flag"></i>Венгрия
-                                                    </div>
-                                                    <div className="item" data-value="kz"><i className="kz flag"></i>Казахстан
-                                                    </div>
+                                            <Input name="customer"
+                                                   value={this.props.orderInfo.customer}
+                                                   onChange={this.onChange}/>
 
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Покупатель <i className="ui icon male"></i>
+                                            Phone <i className="ui icon phone"></i>
                                         </label>
                                         <div className="order-setting">
-                                            <div className="ui input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="order-setting-row">
-                                        <label htmlFor="">
-                                            Телефон <i className="ui icon phone"></i>
-                                        </label>
-                                        <div className="order-setting">
-                                            <div className="ui input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
+                                            <Input name="phone"
+                                                   value={this.props.orderInfo.phone}
+                                                   onChange={this.onChange}/>
                                         </div>
                                     </div>
 
@@ -119,325 +203,147 @@ class OrderModal extends Component {
                                             Email <i className="ui icon mail outline"></i>
                                         </label>
                                         <div className="order-setting">
-                                            <div className="ui input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
+                                            <Input name="email"
+                                                   value={this.props.orderInfo.email}
+                                                   onChange={this.onChange}/>
                                         </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Отдел <i className="ui icon building"></i>
+                                            Status <i className="ui icon star outline"></i>
                                         </label>
 
                                         <div className="order-setting">
-                                            <div className="ui fluid selection dropdown">
-                                                <input type="hidden" name="office"/>
-                                                <i className="dropdown icon"></i>
-                                                <div className="default text">Розничный магазин</div>
-                                                <div className="menu">
+                                            <Select
+                                                placeholder='Select status'
+                                                onChange={this.onChange}
+                                                name="status"
+                                                value={this.props.orderInfo.status}
+                                                fluid
+                                                search
+                                                selection
+                                                options={this.props.orderInfo.statuses}
+                                            />
 
-                                                    <div className="item" data-value="af">Розничный магазин</div>
-                                                    <div className="item" data-value="af">Оптовый отдел</div>
-                                                    <div className="item" data-value="af">Отдел ОАЭ</div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="order-setting-row">
-                                        <label htmlFor="">
-                                            Статус заказа <i className="ui icon star outline"></i>
-                                        </label>
-
-                                        <div className="order-setting">
-                                            <div className="ui fluid selection dropdown">
-                                                <input type="hidden" name="status"/>
-                                                <i className="dropdown icon"></i>
-                                                <div className="default text"><a
-                                                    className="ui green empty circular label"></a>Завершено
-                                                </div>
-                                                <div className="menu">
-
-                                                    <div className="item" data-value="af"><img
-                                                        src="img/flags/no_icon.ico"
-                                                        alt=""/>Не
-                                                        указано
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui grey empty circular label"></a>
-                                                        Новый
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui green empty circular label"></a>
-                                                        Завершено
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui yellow empty circular label"></a>
-                                                        Отправлено
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui red empty circular label"></a>
-                                                        Возврат товара (склад)
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui pink empty circular label"></a>
-                                                        Отказ
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui teal empty circular label"></a>
-                                                        Успешно выполнено
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui brown empty circular label"></a>
-                                                        Не подтверждённо
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui purple empty circular label"></a>
-                                                        Успешно не выполнено
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui red empty circular label"></a>
-                                                        Возврат товара в пути
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui grey empty circular label"></a>
-                                                        Одесса
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui green empty circular label"></a>
-                                                        В пути деньги
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui violet empty circular label"></a>
-                                                        На контроле
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <a className="ui brown empty circular label"></a>
-                                                        Утилизация
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
 
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Причина отказа <i className="ui icon info"></i>
-                                        </label>
-
-                                        <div className="order-setting">
-                                            <div className="ui fluid selection dropdown disabled">
-                                                <input type="hidden" name="status"/>
-                                                <i className="dropdown icon"></i>
-                                                <div className="default text">Не указано</div>
-                                                <div className="menu">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div className="order-setting-row">
-                                        <label htmlFor="">
-                                            Статус заказа <i className="ui icon star outline"></i>
-                                        </label>
-
-                                        <div className="order-setting">
-                                            <div className="ui fluid selection dropdown">
-                                                <input type="hidden" name="status"/>
-                                                <i className="dropdown icon"></i>
-                                                <div className="default text"> Не указано</div>
-                                                <div className="menu">
-
-                                                    <div className="item" data-value="af"><img
-                                                        src="img/flags/no_icon.ico"
-                                                        alt=""/>Не
-                                                        указано
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <i className="ui icon money"></i>
-                                                        Оплачено
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <i className="icon credit card outline"></i>
-                                                        Предоплата
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <i className="ui icon times"></i>
-                                                        Отказ
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <i className="ui icon envelope "></i>
-                                                        Налож. платеж
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <i className="ui icon refresh"></i>
-                                                        Обмен
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="order-setting-row">
-                                        <label htmlFor="">
-                                            Комментарий <i className="icon"></i>
+                                            Comment <i className="icon"></i>
                                         </label>
                                         <div className="order-setting">
                                             <div className="ui input">
-                                                <textarea type="text" rows="3" placeholder=""></textarea>
+                                                <TextArea
+                                                    name="comment"
+                                                    onChange={this.onChange}
+                                                    value={this.props.orderInfo.comment}
+                                                    rows={3}/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="order-setting-block">
-                                    <div className="ui horizontal divider">UTM метки</div>
+                                    <div className="ui horizontal divider">UTM parameters</div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
                                             utm_source <i className="icon crosshairs"></i>
                                         </label>
+
+                                        <div className="order-setting">
+                                            <Input name="utm_source"
+                                                   value={this.props.orderInfo.utm_source}
+                                                   onChange={this.onChange}/>
+                                        </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
                                             utm_medium <i className="icon crosshairs"></i>
                                         </label>
+
+                                        <div className="order-setting">
+                                            <Input name="utm_medium"
+                                                   value={this.props.orderInfo.utm_medium}
+                                                   onChange={this.onChange}/>
+                                        </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
                                             utm_term <i className="icon crosshairs"></i>
                                         </label>
+                                        <div className="order-setting">
+                                            <Input name="utm_term"
+                                                   value={this.props.orderInfo.utm_term}
+                                                   onChange={this.onChange}/>
+                                        </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
                                             utm_content <i className="icon crosshairs"></i>
                                         </label>
+
+                                        <div className="order-setting">
+                                            <Input name="utm_content"
+                                                   value={this.props.orderInfo.utm_content}
+                                                   onChange={this.onChange}/>
+                                        </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
                                             utm_campaign <i className="icon crosshairs"></i>
                                         </label>
+
+                                        <div className="order-setting">
+                                            <Input name="utm_campaign"
+                                                   value={this.props.orderInfo.utm_campaign}
+                                                   onChange={this.onChange}/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="five wide column">
                                 <div className="order-setting-block">
-                                    <div className="ui horizontal divider">Доставка</div>
+                                    <div className="ui horizontal divider">Delivery</div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Способ<i className="icon truck"></i>
+                                            Type<i className="icon truck"></i>
                                         </label>
 
                                         <div className="order-setting">
-                                            <div className="ui fluid selection dropdown">
-                                                <input type="hidden" name="delivery_type"/>
-                                                <i className="dropdown icon"></i>
-                                                <div className="default text">
-                                                    <img src="img/delivery/ico-new-post.ico" alt=""/>
-                                                    Новая Почта
-                                                </div>
-                                                <div className="menu">
-
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/flags/no_icon.ico" alt=""/>
-                                                        Нет значения
-                                                    </div>
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/ico-new-post.ico" alt=""/>
-                                                        Новая Почта
-                                                    </div>
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/ico-self.ico" alt=""/>
-                                                        Самовывоз
-                                                    </div>
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/ico-post-ua.ico" alt=""/>
-                                                        Укрпочта
-                                                    </div>
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/intime.ico" alt=""/>
-                                                        Интайм
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/ico-autolux.ico" alt=""/>
-                                                        Автолюкс
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/ico-delivery-auto.ico" alt=""/>
-                                                        Деливери
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/ico-post-ru.ico" alt=""/>
-                                                        Почта России
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/ico-kazpost.ico" alt=""/>
-                                                        Каз почта
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/cdek.ico" alt=""/>
-                                                        СДЭК
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/fetchr.ico" alt=""/>
-                                                        Fetchr
-                                                    </div>
-
-                                                    <div className="item" data-value="af">
-                                                        <img src="img/delivery/ico-post-ru.ico" alt=""/>
-                                                        Почта России
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <Select
+                                                placeholder='Select delivery type'
+                                                onChange={this.onChange}
+                                                name="delivery_id"
+                                                value={this.props.orderInfo.delivery_id}
+                                                fluid
+                                                search
+                                                selection
+                                                options={this.props.orderInfo.deliveries}
+                                            />
                                         </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            ТТН <i className="icon file alternate outline"></i>
+                                            Waybill <i className="icon file alternate outline"></i>
 
                                         </label>
                                         <div className="order-setting">
-                                            <div className="ui input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
+                                            <Input name="waybill"
+                                                   value={this.props.orderInfo.waybill}
+                                                   onChange={this.onChange}/>
                                             <a href="#" className="input-setting open-secondary-modal"
                                                data-modal-target="modal-create-ttn">
-                                                создать
+                                                create
                                             </a>
 
                                         </div>
@@ -445,18 +351,18 @@ class OrderModal extends Component {
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Адрес <i className="icon map marker alternate"></i>
+                                            Address <i className="icon map marker alternate"></i>
                                         </label>
                                         <div className="order-setting">
-                                            <div className="ui input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
+                                            <Input name="address"
+                                                   value={this.props.orderInfo.address}
+                                                   onChange={this.onChange}/>
                                         </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Отправлено <i className="icon calendar check outline"></i>
+                                            Sent <i className="icon calendar check outline"></i>
                                         </label>
 
                                         <div className="order-setting">
@@ -471,36 +377,7 @@ class OrderModal extends Component {
 
                                 </div>
                                 <div className="order-setting-block">
-                                    <div className="ui horizontal divider">Служебная информация</div>
-
-                                    <div className="order-setting-row">
-                                        <label htmlFor="">
-                                            Сотрудник<i className="icon user circle"></i>
-                                        </label>
-
-                                        <div className="order-setting">
-                                            <div className="ui fluid search selection dropdown">
-                                                <input type="hidden" name="delivery_type"/>
-                                                <i className="dropdown icon"></i>
-                                                <div className="default text">
-                                                    Админ
-                                                </div>
-                                                <div className="menu">
-
-                                                    <div className="item" data-value="af">
-                                                        Админ
-                                                    </div>
-                                                    <div className="item" data-value="af">
-                                                        Менеджер
-                                                    </div>
-                                                    <div className="item" data-value="af">
-                                                        Гость
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div className="ui horizontal divider">Service information</div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
@@ -508,36 +385,21 @@ class OrderModal extends Component {
                                         </label>
                                         <div className="order-setting">
                                             <p className="setting-info">
-                                                178.213.2.40
-                                                <i className="icon angle double right"></i>
-                                                <a href="#">блокировать</a>
+                                                {this.props.orderInfo.ip}
                                             </p>
                                         </div>
                                     </div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Сайт <i className="icon globe"></i>
+                                            Website <i className="icon globe"></i>
                                         </label>
                                         <div className="order-setting">
                                             <p className="setting-info grey">
-                                                stagery-test.ukraine-shop.top
-
-                                                <a href="#"><i className="icon linkify"></i></a>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="order-setting-row">
-                                        <label htmlFor="">
-                                            order_id <i className="icon calendar check outline"></i>
-                                        </label>
-
-                                        <div className="order-setting">
-                                            <p className="setting-info">
-                                                15559154267
-                                                <a href="#"><i className="icon info circle"></i></a>
-                                                <span>от 2019-04-22 09:43:46</span>
+                                                {this.props.orderInfo.website}
+                                                <a href={this.props.orderInfo.website}>
+                                                    <i className="icon linkify"></i>
+                                                </a>
                                             </p>
                                         </div>
                                     </div>
@@ -545,46 +407,46 @@ class OrderModal extends Component {
                                 </div>
 
                                 <div className="order-setting-block">
-                                    <div className="ui horizontal divider">Дополнительно</div>
+                                    <div className="ui horizontal divider">Extra</div>
 
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Доп. поле 1 <i className="icon plus"></i>
+                                            Additional field 1 <i className="icon plus"></i>
                                         </label>
                                         <div className="order-setting">
-                                            <div className="ui  input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
+                                            <Input name="additional_field_1"
+                                                   value={this.props.orderInfo.additional_field_1}
+                                                   onChange={this.onChange}/>
                                         </div>
                                     </div>
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Доп. поле 2 <i className="icon plus"></i>
+                                            Additional field 2 <i className="icon plus"></i>
                                         </label>
                                         <div className="order-setting">
-                                            <div className="ui  input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
+                                            <Input name="additional_field_2"
+                                                   value={this.props.orderInfo.additional_field_2}
+                                                   onChange={this.onChange}/>
                                         </div>
                                     </div>
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Доп. поле 3 <i className="icon plus"></i>
+                                            Additional field 3 <i className="icon plus"></i>
                                         </label>
                                         <div className="order-setting">
-                                            <div className="ui  input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
+                                            <Input name="additional_field_3"
+                                                   value={this.props.orderInfo.additional_field_3}
+                                                   onChange={this.onChange}/>
                                         </div>
                                     </div>
                                     <div className="order-setting-row">
                                         <label htmlFor="">
-                                            Доп. поле 4 <i className="icon plus"></i>
+                                            Additional field 4 <i className="icon plus"></i>
                                         </label>
                                         <div className="order-setting">
-                                            <div className="ui  input">
-                                                <input type="text" placeholder=""/>
-                                            </div>
+                                            <Input name="additional_field_4"
+                                                   value={this.props.orderInfo.additional_field_4}
+                                                   onChange={this.onChange}/>
                                         </div>
                                     </div>
 
@@ -592,63 +454,43 @@ class OrderModal extends Component {
                             </div>
                             <div className="six wide column">
                                 <div className="order-setting-block">
-                                    <div className="ui horizontal divider">Товар</div>
+                                    <div className="ui horizontal divider">Products</div>
 
                                     <table className="ui table modal-order-products">
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>sub_id</th>
-                                            <th>sub_name</th>
-                                            <th width="150px">Товар</th>
-                                            <th>Цена</th>
-                                            <th>Кол-во</th>
-                                            <th>Итого</th>
+
+                                            <th width="150px">Product</th>
+                                            <th>Price</th>
+                                            <th>Amount</th>
+                                            <th>Total</th>
                                             <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>1680</td>
-                                            <td>0</td>
-                                            <td></td>
-                                            <td><a href="#">Рубашка Espirit</a></td>
-                                            <td className="num-cell">599.00</td>
-                                            <td className="num-cell">1</td>
-                                            <td className="num-cell">599.00</td>
-                                            <td><a href="#" className="remove-item"><i className="icon times"></i></a>
-                                            </td>
-                                        </tr>
 
-                                        <tr>
-                                            <td>1678</td>
-                                            <td>0</td>
-                                            <td></td>
-                                            <td><a href="#">Кроссовки Nike</a></td>
-                                            <td className="num-cell">1399.00</td>
-                                            <td className="num-cell">1</td>
-                                            <td className="num-cell">1399.00</td>
-                                            <td><a href="#" className="remove-item"><i className="icon times"></i></a>
-                                            </td>
-                                        </tr>
+                                        {products}
 
                                         </tbody>
 
                                         <tfoot>
                                         <tr>
-                                            <td colSpan="5">
-                                                <a href="#">
-                                                    <i className="icon plus circle"></i> Добавить товар
+                                            <td colSpan="3">
+                                                <a href="#" onClick={this.props.addOrderProductModal}>
+                                                    <i className="icon plus circle"></i> Add product
                                                 </a>
 
-                                                <span>Всего:</span>
+                                                <span>Total:</span>
                                             </td>
                                             <td>
-                                                <b>2</b>
+                                                <b>
+                                                    {this.getTotalAmount()}
+                                                </b>
                                             </td>
                                             <td>
                                                 <b className="sum">
-                                                    1998.00
+                                                    {this.getTotalPrice()}
                                                 </b>
                                             </td>
                                         </tr>
@@ -656,94 +498,36 @@ class OrderModal extends Component {
                                     </table>
                                 </div>
 
-                                <div className="order-setting-block">
-                                    <div className="ui horizontal divider">
-                                        <div className="ui toggle checkbox">
-                                            <input type="checkbox" name="refresh"/>
-                                            <label htmlFor=""></label>
-                                        </div>
-                                        Допродажа
-                                    </div>
-
-                                    <table className="ui table modal-order-products">
-                                        <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>sub_id</th>
-                                            <th>sub_name</th>
-                                            <th width="150px">Товар</th>
-                                            <th>Цена</th>
-                                            <th>Кол-во</th>
-                                            <th>Итого</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        <tr>
-                                            <td>1678</td>
-                                            <td>0</td>
-                                            <td></td>
-                                            <td><a href="#">Кроссовки Nike</a></td>
-                                            <td className="num-cell">1399.00</td>
-                                            <td className="num-cell">1</td>
-                                            <td className="num-cell">1399.00</td>
-                                            <td><a href="#" className="remove-item"><i className="icon times"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        </tbody>
-
-                                        <tfoot>
-                                        <tr>
-                                            <td colSpan="5">
-                                                <a href="#">
-                                                    <i className="icon plus circle"></i> Добавить товар
-                                                </a>
-
-                                                <span>Всего:</span>
-                                            </td>
-                                            <td>
-                                                <b>1</b>
-                                            </td>
-                                            <td>
-                                                <b className="sum">
-                                                    1998.00
-                                                </b>
-                                            </td>
-                                        </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
                             </div>
                         </div>
-                    </Modal.Content>
+                    </Form>
+                </Modal.Content>
 
-                    <Modal.Actions>
-                        <div className="modal-foot">
-                            <div className="total-sum">
-                                <p>Сумма заказа: <span>1038</span></p>
-                            </div>
-
-                            <div className="modal-save">
-                                <button className="ui labeled icon button blue"><i className="save icon"></i> Сохранить
-                                    и
-                                    закрыть
-                                </button>
-                            </div>
+                <Modal.Actions>
+                    <div className="modal-foot">
+                        <div className="total-sum">
+                            <p>Order price: <span>{this.getTotalPrice()}</span></p>
                         </div>
-                    </Modal.Actions>
-                </Modal>
-            </TransitionablePortal>
+
+                        <div className="modal-save">
+                            <button className="ui labeled icon button blue"
+                                    onClick={this.onSubmit}>
+                                <i className="save icon"></i>
+                                Save and close
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <OrderProductModalContainer/>
+
+                </Modal.Actions>
+
+            </Modal>
+
         )
     }
 
 }
-
-OrderModal.propTypes = {
-    modalOpen: PropTypes.bool.isRequired,
-    handleClose: PropTypes.func.isRequired,
-    productValue: PropTypes.string.isRequired
-};
 
 export default OrderModal;
