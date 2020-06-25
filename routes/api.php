@@ -18,6 +18,7 @@ Route::post('logout', 'UserController@logout');
 Route::post('add_product', 'ProductsController@store');
 Route::get('get_products', 'ProductsController@getProducts');
 Route::get('get_products_from_cat/{id}', 'ProductsController@getProductsFromCat');
+Route::get('get_products_by_currency/{id}', 'ProductsController@getProductsByCurrency');
 Route::get('get_product_info/{id}', 'ProductsController@getProductInfo');
 Route::put('update_product/{id}', 'ProductsController@update');
 
@@ -45,6 +46,13 @@ Route::get('get_orders', 'OrderController@getOrders');
 Route::get('get_orders_by_status/{id}', 'OrderController@getOrdersByStatus');
 Route::get('get_order_info/{id}', 'OrderController@getOrderInfo');
 Route::put('update_order/{id}', 'OrderController@update');
+
+//Statistics
+Route::get('get_statistics_products', 'StatisticsController@getStatisticsProducts');
+Route::get('get_statistics_customers', 'StatisticsController@getStatisticsCustomers');
+Route::get('get_customers', 'StatisticsController@getCustomers');
+
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

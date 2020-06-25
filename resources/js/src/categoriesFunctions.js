@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const addCategory = category => {
     return axios
-        .post('api/add_category', category, {
+        .post('/api/add_category', category, {
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {
@@ -16,7 +16,7 @@ export const addCategory = category => {
 
 export const getCategories = () => {
     return axios
-        .get('api/get_categories')
+        .get('/api/get_categories')
         .then(res => {
             return res.data;
         })
@@ -27,7 +27,7 @@ export const getCategories = () => {
 
 export const loadCategoryInfo = id => {
     return axios
-        .get('api/get_category_info/' + id)
+        .get('/api/get_category_info/' + id)
         .then(res => {
             return res.data;
         })
@@ -38,7 +38,7 @@ export const loadCategoryInfo = id => {
 
 export const updateCategory = (category, id) => {
     return axios
-        .put('api/update_category/' + id, category, {
+        .put('/api/update_category/' + id, category, {
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {

@@ -9,7 +9,7 @@ import {Provider} from "react-redux";
 
 if (document.getElementById('dev')) {
     ReactDOM.render(
-        <Router history={history}>
+        <Router  history={history}>
             <Provider store={store}>
                 <Dev/>
             </Provider>

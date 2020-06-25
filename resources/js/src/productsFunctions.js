@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const addProduct = product => {
     return axios
-        .post('api/add_product', product, {
+        .post('/api/add_product', product, {
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {
@@ -16,7 +16,7 @@ export const addProduct = product => {
 
 export const getProducts = () => {
     return axios
-        .get('api/get_products')
+        .get('/api/get_products')
         .then(res => {
             return res.data;
         })
@@ -27,7 +27,18 @@ export const getProducts = () => {
 
 export const getProductsFromCat = id => {
     return axios
-        .get('api/get_products_from_cat/' + id)
+        .get('/api/get_products_from_cat/' + id)
+        .then(res => {
+            return res.data;
+        })
+        .catch(err => {
+            return err;
+        });
+};
+
+export const getProductsByCurrency = id => {
+    return axios
+        .get('/api/get_products_by_currency/' + id)
         .then(res => {
             return res.data;
         })
@@ -38,7 +49,7 @@ export const getProductsFromCat = id => {
 
 export const loadProductInfo = id => {
     return axios
-        .get('api/get_product_info/' + id)
+        .get('/api/get_product_info/' + id)
         .then(res => {
             return res.data;
         })
@@ -49,7 +60,7 @@ export const loadProductInfo = id => {
 
 export const updateProduct = (product, id) => {
     return axios
-        .put('api/update_product/' + id, product, {
+        .put('/api/update_product/' + id, product, {
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {

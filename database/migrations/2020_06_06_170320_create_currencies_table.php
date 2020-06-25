@@ -18,6 +18,7 @@ class CreateCurrenciesTable extends Migration
             $table->string('name');
             $table->string('symbol');
             $table->string('shortName');
+            $table->float('usd');
             $table->timestamps();
         });
     }

@@ -32,8 +32,6 @@ class ProductsController extends Controller
 
     public function getProductsFromCat($id)
     {
-
-
         if ($id)
             $products = Products::orderBy('created_at', 'desc')->where("category_id", "=", $id)->get();
         else
@@ -49,6 +47,17 @@ class ProductsController extends Controller
 
             }
         }
+
+        return response()->json($products, 201);
+    }
+
+    public function getProductsByCurrency($id){
+
+        if ($id)
+            $products = Products::orderBy('created_at', 'desc')->where("currency_id", "=", $id)->get();
+        else
+            $products = Products::orderBy('created_at', 'desc')->where("currency_id", "=", "")
+                ->orWhereNull("currency_id")->get();
 
         return response()->json($products, 201);
     }

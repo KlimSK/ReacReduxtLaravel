@@ -1,11 +1,8 @@
 import React from "react";
 import Welcome from "./Auth/Welcome";
 import Profile from "./Profile/Profile";
-import Orders from "./Profile/Orders/Orders";
-import Products from "./Profile/Products/Products";
 import {getLocalStorage} from "./Auth/UserFunctions";
 import {Route, Router, Switch} from "react-router-dom";
-import ProductsContainer from "./Profile/Products/ProductsContainer";
 import history from "../history";
 
 let isAuthorized = () => {

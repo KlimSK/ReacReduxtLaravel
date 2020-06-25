@@ -2,20 +2,21 @@ const GET_CURRENCIES = "GET_CURRENCIES";
 const ADD_CURRENCY = "ADD_CURRENCY";
 const UPDATE_CURRENCY = "UPDATE_CURRENCY";
 
-let initalState = {
+let initialState = {
     currencies: [
         {
             id: 1,
             name: '',
             symbol: '',
             shortName: '',
+            usd: 0
         }
     ],
 
 };
 
 
-const currenciesReducer = (state = initalState, action) =>{
+const currenciesReducer = (state = initialState, action) =>{
     switch (action.type) {
         case ADD_CURRENCY:
             return {

@@ -98,15 +98,6 @@ export default class Navbar extends Component {
         });
     }
 
-
-    checkActive(match, location) {
-        //some additional logic to verify you are in the home URI
-        if (!location) return false;
-        const {pathname} = location;
-        console.log(pathname);
-        return pathname === "/";
-    };
-
     render() {
         return (
             <aside>
@@ -159,10 +150,10 @@ export default class Navbar extends Component {
                             </NavLink>
                         </li>
 
-                        <li className="no-submenu" title="Statistic">
-                            <NavLink activeClassName="active" to="/statistic">
+                        <li className="no-submenu" title="Statistics">
+                            <NavLink activeClassName="active" to="/statistics">
                                 <Icon name="chart line"/>
-                                Statistic
+                                Statistics
                             </NavLink>
                         </li>
 

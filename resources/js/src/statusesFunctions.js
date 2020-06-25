@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getStatuses = () => {
     return axios
-        .get('api/get_statuses')
+        .get('/api/get_statuses')
         .then(res => {
             return res.data;
         })
@@ -15,7 +15,7 @@ export const getStatuses = () => {
 
 export const addStatus = status => {
     return axios
-        .post('api/add_status', status, {
+        .post('/api/add_status', status, {
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {
@@ -29,7 +29,7 @@ export const addStatus = status => {
 
 export const loadStatusInfo = id => {
     return axios
-        .get('api/get_status_info/' + id)
+        .get('/api/get_status_info/' + id)
         .then(res => {
            return res.data;
         })
@@ -41,7 +41,7 @@ export const loadStatusInfo = id => {
 
 export const updateStatus = (status, id) => {
     return axios
-        .put('api/update_status/' + id, status, {
+        .put('/api/update_status/' + id, status, {
             headers: {'Content-Type': 'application/json'}
         })
         .then((res) => {

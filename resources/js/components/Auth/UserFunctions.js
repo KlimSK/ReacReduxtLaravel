@@ -4,7 +4,7 @@ import history from "../../history";
 
 export const register = newUser =>{
     return axios
-        .post('api/register', newUser, {
+        .post('/api/register', newUser, {
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {
@@ -18,7 +18,7 @@ export const register = newUser =>{
 
 export const login = user =>{
     return axios
-        .post('api/login', {
+        .post('/api/login', {
             email: user.email,
             password: user.password
         }, {
@@ -35,7 +35,7 @@ export const login = user =>{
 
 export const getProfile = () => {
     return axios
-        .get('api/profile', {
+        .get('/api/profile', {
             headers: { Authorization: `Bearer ${getLocalStorage('usertoken')}` }
         })
         .then(response => {
@@ -50,7 +50,7 @@ export const getProfile = () => {
 export const logout = (event) => {
     event.preventDefault();
     return axios
-        .post('api/logout', {
+        .post('/api/logout', {
             token: getLocalStorage('usertoken')
         })
         .then(response => {

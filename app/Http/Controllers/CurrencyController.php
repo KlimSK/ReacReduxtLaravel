@@ -41,6 +41,7 @@ class CurrencyController extends Controller
         $currency->name = $request->json()->get('name');
         $currency->shortName = $request->json()->get('shortName');
         $currency->symbol = $request->json()->get('symbol');
+        $currency->usd = $request->json()->get('usd');
 
 
         $currency->update();
@@ -66,50 +67,11 @@ class CurrencyController extends Controller
         $currency->name = $request->json()->get('name');
         $currency->symbol = $request->json()->get('symbol');
         $currency->shortName = $request->json()->get('shortName');
+        $currency->usd = $request->json()->get('usd');
 
         $currency->save();
 
         return response()->json(array('id' => $currency->id),  201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Currency  $currency
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Currency $currency)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Currency  $currency
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Currency $currency)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Currency  $currency
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Currency  $currency
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Currency $currency)
-    {
-        //
-    }
 }

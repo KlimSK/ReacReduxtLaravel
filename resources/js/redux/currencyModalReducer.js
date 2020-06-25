@@ -15,6 +15,7 @@ let initialState = {
     currencyName: '',
     symbol: '',
     shortName: '',
+    usd: 0,
 };
 
 const currencyModalReducer = (state = initialState, action) => {
@@ -28,6 +29,7 @@ const currencyModalReducer = (state = initialState, action) => {
                 currencyName: '',
                 symbol: '',
                 shortName: '',
+                usd: 0,
                 isLoaded: false
             };
 
@@ -48,6 +50,7 @@ const currencyModalReducer = (state = initialState, action) => {
                 currencyName: '',
                 symbol: '',
                 shortName: '',
+                usd: 0,
                 isLoaded: false
             };
 
@@ -57,6 +60,8 @@ const currencyModalReducer = (state = initialState, action) => {
                 currencyName: action.currency.name ? action.currency.name : '',
                 symbol: action.currency.symbol ? action.currency.symbol : '',
                 shortName: action.currency.shortName ? action.currency.shortName : '',
+                usd: action.currency.usd ? action.currency.usd : 0,
+
             }
         }
 

@@ -4,7 +4,6 @@ import {getProfile} from "../Auth/UserFunctions";
 import Navbar from "./inc/Navbar";
 import Header from "./inc/Header";
 import Footer from "./inc/Footer";
-import Orders from "./Orders/Orders";
 import {Route} from "react-router-dom";
 import {Sugar} from "react-preloaders";
 import ProductsContainer from "./Products/ProductsContainer";
@@ -14,6 +13,9 @@ import CurrenciesContainer from "./Currencies/CurrenciesContainer";
 import CategoriesContainer from "./Categories/CategoriesContainer";
 import {StatusesContainer} from "./Statuses/StatusesContainer";
 import {OrdersContainer} from "./Orders/OrdersContainer";
+import {StatisticsContainer} from "./Statistics/StatisticsContainer";
+import StatisticsProductsContainer from "./Statistics/Products/StatisticsProductsContainer";
+import StatisticsCustomersContainer from "./Statistics/Customers/StatisticsCustomersContainer";
 
 
 class Profile extends Component {
@@ -54,6 +56,9 @@ class Profile extends Component {
                     <Route exact path="/currencies" render={() => <CurrenciesContainer /> }/>
                     <Route exact path="/categories" render={() => <CategoriesContainer /> }/>
                     <Route exact path="/statuses" render={() => <StatusesContainer /> }/>
+                    <Route exact path="/statistics" render={() => <StatisticsContainer /> }/>
+                    <Route exact path="/statistics/products" render={() => <StatisticsProductsContainer /> }/>
+                    <Route exact path="/statistics/customers" render={() => <StatisticsCustomersContainer /> }/>
 
                     <Footer/>
 

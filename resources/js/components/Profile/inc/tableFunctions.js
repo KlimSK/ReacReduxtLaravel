@@ -9,7 +9,9 @@ export const mainTableHeight = () => {
             sum += parseFloat($(this).outerHeight());
         });
 
-        sum += $('header').outerHeight() + $('footer').outerHeight();
+
+        if(!table.hasClass('statistics-table'))
+            sum += $('header').outerHeight() + $('footer').outerHeight();
 
         $('.main-table').css('height', 'calc(100vh - ' + sum + 'px - 25px)');
     }

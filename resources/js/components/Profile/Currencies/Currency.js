@@ -28,6 +28,9 @@ export default class Currency extends Component {
                     <p>{this.props.currency.shortName}</p>
                 </td>
 
+                <td>
+                    <p>{this.props.currency.usd}</p>
+                </td>
             </tr>
         )
     }

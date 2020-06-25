@@ -32,6 +32,7 @@ export default class CurrencyModal extends Component {
                         name: currency.name,
                         symbol: currency.symbol,
                         shortName: currency.shortName,
+                        usd: currency.usd
                     });
 
                 });
@@ -55,6 +56,7 @@ export default class CurrencyModal extends Component {
             name: currency.currencyName,
             symbol: currency.symbol,
             shortName: currency.shortName,
+            usd: currency.usd
         };
 
 
@@ -140,6 +142,15 @@ export default class CurrencyModal extends Component {
                                         <div className="order-setting">
                                             <Input name="shortName"
                                                    value={this.props.currencyInfo.shortName}
+                                                   onChange={this.onChange}/>
+                                        </div>
+                                    </div>
+
+                                    <div className="order-setting-row">
+                                        <label htmlFor="modal-currency__symbol">Rate (USD)</label>
+                                        <div className="order-setting">
+                                            <Input name="usd"
+                                                   value={this.props.currencyInfo.usd}
                                                    onChange={this.onChange}/>
                                         </div>
                                     </div>

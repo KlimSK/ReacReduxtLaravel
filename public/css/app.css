@@ -7056,7 +7056,7 @@ main .main-content header .header-controls .header-user-info table .user-info-lo
 
 .main-table {
   margin: 10px 10px 0 10px;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .main-table .ui.table {
@@ -7443,6 +7443,18 @@ footer .footer-settings .ws {
 
 .modal {
   left: auto !important;
+}
+
+.statistics-table .rv-xy-plot__axis__title text {
+  font-size: 15px !important;
+}
+
+.filter-button {
+  padding: 15px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  background: white;
+  bottom: 0;
 }
 
 aside {
