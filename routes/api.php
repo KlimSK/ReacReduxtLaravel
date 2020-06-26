@@ -50,6 +50,8 @@ Route::put('update_order/{id}', 'OrderController@update');
 //Statistics
 Route::get('get_statistics_products', 'StatisticsController@getStatisticsProducts');
 Route::get('get_statistics_customers', 'StatisticsController@getStatisticsCustomers');
+Route::get('get_statistics_period', 'StatisticsController@getStatisticsPeriod');
+Route::get('get_statistics_compare', 'StatisticsController@getStatisticsCompare');
 Route::get('get_customers', 'StatisticsController@getCustomers');
 
 

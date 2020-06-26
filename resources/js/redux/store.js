@@ -13,6 +13,8 @@ import orderProductModalReducer from "./orderProductModalReducer";
 import statisticsReducer from "./statisticsReducer";
 import statisticsProductsReducer from "./statisticsProductsReducer";
 import statisticsCustomersReducer from "./statisticsCustomersReducer";
+import statisticsPeriodReducer from "./statisticsPeriodReducer";
+import statisticsCompareReducer from "./statisticsCompareReducer";
 
 
 let reducers = combineReducers({
@@ -29,7 +31,9 @@ let reducers = combineReducers({
     orderProductModal: orderProductModalReducer,
     statisticsPage: statisticsReducer,
     statisticsProductsPage: statisticsProductsReducer,
-    statisticsCustomersPage: statisticsCustomersReducer
+    statisticsCustomersPage: statisticsCustomersReducer,
+    statisticsPeriodPage: statisticsPeriodReducer,
+    statisticsComparePage: statisticsCompareReducer,
 });
 
 let store = createStore(reducers);

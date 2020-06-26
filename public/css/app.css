@@ -7457,6 +7457,11 @@ footer .footer-settings .ws {
   bottom: 0;
 }
 
+.suir-calendar.popup {
+  max-width: none;
+  height: 200px;
+}
+
 aside {
   min-height: 100vh;
   width: 200px;

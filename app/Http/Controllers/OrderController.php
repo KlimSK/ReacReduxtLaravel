@@ -17,7 +17,7 @@ class OrderController extends Controller
 
     public function getOrders()
     {
-        $orders = Order::orderBy('created_at', 'desc')->get();
+        $orders = Order::orderBy('id', 'desc')->get();
 
         foreach ($orders as $order) {
             $customer = Customers::find($order->customer_id);

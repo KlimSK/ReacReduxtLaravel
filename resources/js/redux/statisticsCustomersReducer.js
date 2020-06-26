@@ -7,7 +7,7 @@ let initialState = {
     ],
     customers: [],
 
-    selectedCustomers: [ 3, 4],
+    selectedCustomers: [1, 2, 3, 4, 5],
     type: 'amount', //amount or income
 
     lists: {

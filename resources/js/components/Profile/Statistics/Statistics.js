@@ -179,7 +179,7 @@ export default class Statistics extends Component {
 
                                 <Grid.Column width={8}>
 
-                                    <NavLink to="statistics/comparing">
+                                    <NavLink to="statistics/compare">
                                         <Card fluid className="mt-1">
                                             <Card.Content>
                                                 <div className="flex-block justify-center">
