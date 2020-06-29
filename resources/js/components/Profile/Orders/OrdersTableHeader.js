@@ -44,11 +44,11 @@ export default class OrdersTableHeader extends Component {
                 <th width="230">Sent</th>
                 {/*<th width="200">Waybill status</th>*/}
                 <th width="180">Website</th>
-                <th width="100">utm_source</th>
+                {/*<th width="100">utm_source</th>
                 <th width="200">utm_medium</th>
                 <th width="125">utm_term</th>
                 <th width="140">utm_content</th>
-                <th width="145">utm_campaign</th>
+                <th width="145">utm_campaign</th>*/}
                 <th width="130">IP</th>
                 <th width="170">Additional field 1</th>
                 <th width="150">Additional field 2</th>
@@ -57,7 +57,7 @@ export default class OrdersTableHeader extends Component {
             </tr>
 
 
-            <tr>
+            {/*<tr>
                 <td></td>
                 <td>
                     <div className="ui input">
@@ -180,7 +180,7 @@ export default class OrdersTableHeader extends Component {
                         <input type="text"/>
                     </div>
                 </td>
-            </tr>
+            </tr>*/}
 
 
             </thead>

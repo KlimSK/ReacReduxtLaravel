@@ -102,11 +102,11 @@ export default class Order extends Component {
                         {this.props.order.website}
                     </p>
                 </td>
-                <td><p>{this.props.order.utm_source}</p></td>
+                {/*<td><p>{this.props.order.utm_source}</p></td>
                 <td><p>{this.props.order.utm_medium}</p></td>
                 <td><p>{this.props.order.utm_term}</p></td>
                 <td><p>{this.props.order.utm_content}</p></td>
-                <td><p>{this.props.order.utm_campaign}</p></td>
+                <td><p>{this.props.order.utm_campaign}</p></td>*/}
                 <td><p><i className="ui icon desktop"></i> {this.props.order.ip}</p></td>
                 <td><p>{this.props.order.additional_field_1}</p></td>
                 <td><p>{this.props.order.additional_field_2}</p></td>

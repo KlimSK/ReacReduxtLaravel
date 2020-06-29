@@ -15,6 +15,8 @@ import statisticsProductsReducer from "./statisticsProductsReducer";
 import statisticsCustomersReducer from "./statisticsCustomersReducer";
 import statisticsPeriodReducer from "./statisticsPeriodReducer";
 import statisticsCompareReducer from "./statisticsCompareReducer";
+import connectionReducer from "./connectionReducer";
+import connectionModalReducer from "./connectionModalReducer";
 
 
 let reducers = combineReducers({
@@ -34,6 +36,8 @@ let reducers = combineReducers({
     statisticsCustomersPage: statisticsCustomersReducer,
     statisticsPeriodPage: statisticsPeriodReducer,
     statisticsComparePage: statisticsCompareReducer,
+    connectionsPage: connectionReducer,
+    connectionModal: connectionModalReducer
 });
 
 let store = createStore(reducers);

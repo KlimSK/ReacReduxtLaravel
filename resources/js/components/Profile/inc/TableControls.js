@@ -21,6 +21,9 @@ export default class TableControls extends Component {
         else if(this.props.page === 'statuses'){
             this.props.addStatusModal();
         }
+        else if(this.props.page === 'connections'){
+            this.props.addConnectionModal();
+        }
         else if(this.props.page === 'orders'){
             let statuses = this.props.statuses.map(status => {
                 return {id: status.id, value: status.id, text: status.name};

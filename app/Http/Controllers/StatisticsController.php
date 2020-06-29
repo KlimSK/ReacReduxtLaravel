@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Connection;
 use App\Currency;
 use App\CustomerOrders;
 use App\Order;
@@ -53,6 +54,7 @@ class StatisticsController extends Controller
             'startDate' => 'required',
             'endDate' => 'required',
             'type' => 'required',
+            'status' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -63,7 +65,11 @@ class StatisticsController extends Controller
         $endDate = date("Y-m-d", strtotime($request->endDate));
 
 
-        $orders = Order::whereBetween("created_at", [$startDate, $endDate])->get();
+        if((int) $request->status === 9999)
+            $orders = Order::whereBetween("created_at", [$startDate, $endDate])->get();
+        else
+            $orders = Order::whereBetween("created_at", [$startDate, $endDate])
+                ->where('status_id', '=', $request->status)->get();
 
         //return response()->json($orders, 222);
 

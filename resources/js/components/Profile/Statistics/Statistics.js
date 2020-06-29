@@ -13,11 +13,15 @@ import {
     YAxis
 } from "react-vis";
 import '../../../../../node_modules/react-vis/dist/style.css';
+import {getLocalStorage} from "../../Auth/UserFunctions";
 
 export default class Statistics extends Component {
 
     componentDidMount() {
         mainTableHeight();
+
+        console.log(getLocalStorage('usertoken'));
+
     }
 
     render() {

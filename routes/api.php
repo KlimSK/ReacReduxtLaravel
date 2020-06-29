@@ -54,6 +54,11 @@ Route::get('get_statistics_period', 'StatisticsController@getStatisticsPeriod');
 Route::get('get_statistics_compare', 'StatisticsController@getStatisticsCompare');
 Route::get('get_customers', 'StatisticsController@getCustomers');
 
+//API Connections
+Route::post('add_api_connection', 'ConnectionController@store');
+Route::get('get_api_connections', 'ConnectionController@getConnections');
+Route::put('update_api_connection/{id}', 'ConnectionController@update');
+Route::post('add_order_api', 'ConnectionController@addOrderApi');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

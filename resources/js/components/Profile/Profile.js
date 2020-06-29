@@ -18,6 +18,7 @@ import StatisticsProductsContainer from "./Statistics/Products/StatisticsProduct
 import StatisticsCustomersContainer from "./Statistics/Customers/StatisticsCustomersContainer";
 import StatisticsPeriodContainer from "./Statistics/Period/StatisticsPeriodContainer";
 import StatisticsCompareContainer from "./Statistics/Compare/StatisticsCompareContainer";
+import ConnectionContainer from "./Connections/ConnectionsContainer";
 
 
 class Profile extends Component {
@@ -63,6 +64,7 @@ class Profile extends Component {
                     <Route exact path="/statistics/customers" render={() => <StatisticsCustomersContainer /> }/>
                     <Route exact path="/statistics/period" render={() => <StatisticsPeriodContainer /> }/>
                     <Route exact path="/statistics/compare" render={() => <StatisticsCompareContainer /> }/>
+                    <Route exact path="/connections" render={() => <ConnectionContainer /> }/>
 
                     <Footer/>
 

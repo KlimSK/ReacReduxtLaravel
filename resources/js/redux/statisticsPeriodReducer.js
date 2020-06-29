@@ -5,13 +5,17 @@ let initialState = {
     chartData: [
         {x: "", y: 0},
     ],
-    dates: '17.06.2020 - 26.06.2020',
+    dates: '17.06.2020 - 28.06.2020',
+    statuses: [],
+
+    status: 9999,
 
     type: 'amount', //amount or income
 
     lists: {
         types: true,
-        dates: true
+        dates: true,
+        statuses: false
     }
 
 };

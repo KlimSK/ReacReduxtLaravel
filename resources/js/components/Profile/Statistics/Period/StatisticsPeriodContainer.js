@@ -5,6 +5,7 @@ import {getPeriodStatistics} from "../../../../src/statisticsFunctions";
 import {errors} from "../../../../src/notifications";
 import {changeStatisticsPeriodInfoCreator, toggleListOpenCreator} from "../../../../redux/statisticsPeriodReducer";
 import StatisticsPeriod from "./StatisticsPeriod";
+import {getStatuses} from "../../../../src/statusesFunctions";
 
 class StatisticsPeriodContainer extends React.Component {
     constructor() {
@@ -15,6 +16,11 @@ class StatisticsPeriodContainer extends React.Component {
 
 
     componentDidMount() {
+
+        getStatuses().then(res => {
+            this.props.changeInfo('statuses', res);
+        });
+
         mainTableHeight();
     }
 
@@ -29,10 +35,10 @@ class StatisticsPeriodContainer extends React.Component {
         let params = {
             type: this.props.type,
             startDate: startDate,
-            endDate: endDate
+            endDate: endDate,
+            status: this.props.status,
         };
 
-        console.log(params);
 
         let changeInfo = this.props.changeInfo;
 
@@ -58,7 +64,8 @@ class StatisticsPeriodContainer extends React.Component {
                     data = [...data, {x: date, y: sum, label: sum}]
                 });
 
-                changeInfo('chartData', data);
+
+                data.length ? changeInfo('chartData', data) : changeInfo('chartData', [{x: '', y: 0}]);
             }
             else
                 errors(res)
@@ -69,6 +76,8 @@ class StatisticsPeriodContainer extends React.Component {
         return <StatisticsPeriod dates={this.props.dates}
                                     type={this.props.type}
                                     lists={this.props.lists}
+                                    statuses={this.props.statuses}
+                                    status={this.props.status}
                                     chartData={this.props.chartData}
                                     toggleListOpen={this.props.toggleListOpen}
                                     changeInfo={this.props.changeInfo}
@@ -78,6 +87,8 @@ class StatisticsPeriodContainer extends React.Component {
 
 let mapStateToProps = state => {
     return {
+        statuses: state.statisticsPeriodPage.statuses,
+        status: state.statisticsPeriodPage.status,
         dates: state.statisticsPeriodPage.dates,
         type: state.statisticsPeriodPage.type,
         lists: state.statisticsPeriodPage.lists,
