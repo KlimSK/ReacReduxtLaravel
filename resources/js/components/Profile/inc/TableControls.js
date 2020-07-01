@@ -36,14 +36,14 @@ export default class TableControls extends Component {
         return(
             <div className="content-section">
                 <div className="content-controls">
-                    <div className="selected-blocks">
-                        <div className="ui teal label"><i className="info icon"></i> Выделено
+                    <div className="selected-blocks" style={{opacity: 0}}>
+                        <div className="ui teal label"><i className="info icon"></i> Selected
                             <div className="detail">1</div>
                         </div>
                     </div>
 
                     <div className="content-control-buttons">
-                        <div className="refresh-button ui" data-content="Автоперезагрузка текущего статуса">
+                        {/*<div className="refresh-button ui" data-content="Автоперезагрузка текущего статуса">
                             <i className="refresh icon"></i>
                         </div>
 
@@ -95,12 +95,12 @@ export default class TableControls extends Component {
                                 <div className="item"><i className="trash icon"></i>Удалить</div>
 
                             </div>
-                        </div>
+                        </div>*/}
 
                         <button
                             onClick={this.addButton}
                             className="ui labeled icon button tiny green">
-                            <i className="plus icon"></i> Добавить
+                            <i className="plus icon"></i> Add
                         </button>
                     </div>
                 </div>

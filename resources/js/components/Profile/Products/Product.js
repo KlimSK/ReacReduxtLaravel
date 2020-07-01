@@ -43,9 +43,9 @@ export default class Product extends Component {
                         <p>{this.props.product.amount}</p>
                     }
                 </td>
-                <td className="order-sum">
+                {/*<td className="order-sum">
                     <p className="blue-text">3</p>
-                </td>
+                </td>*/}
             </tr>
         )
     }

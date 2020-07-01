@@ -25,8 +25,7 @@ export default class Navbar extends Component {
                     </div>
 
                     <a href="#" className="home-link" data-modal-target="modal-ttn-status">
-                        <img src="img/CRM-logo_small.png" alt=""/>
-                        LP-CRM
+                        CRM
                     </a>
                 </div>
 
@@ -36,7 +35,7 @@ export default class Navbar extends Component {
                         <li className="no-submenu" title="Orders">
                             <NavLink exact activeClassName="active" to="/">
                                 <Icon name="money bill alternate outline"/>
-                                Orders
+                                <span>Orders</span>
                             </NavLink>
                         </li>
 

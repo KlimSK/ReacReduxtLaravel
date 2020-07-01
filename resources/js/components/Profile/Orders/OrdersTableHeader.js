@@ -41,7 +41,7 @@ export default class OrdersTableHeader extends Component {
                 <th width="100">Delivery type</th>
                 <th width="200">Address</th>
                 <th width="130">Waybill</th>
-                <th width="230">Sent</th>
+                {/*<th width="230">Sent</th>*/}
                 {/*<th width="200">Waybill status</th>*/}
                 <th width="180">Website</th>
                 {/*<th width="100">utm_source</th>

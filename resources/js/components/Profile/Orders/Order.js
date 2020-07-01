@@ -81,13 +81,13 @@ export default class Order extends Component {
                 <td>
                     <p>{this.props.order.waybill}</p>
                 </td>
-                <td>
+                {/*<td>
                     <p>
                         sent
                         2019-05-08 <span
                         style={{fontSize: "11px", opacity: "0.7"}}> &nbsp; 00:00:00</span>
                     </p>
-                </td>
+                </td>*/}
 
                 {/*<td>
                     <p>

@@ -9,7 +9,7 @@ export default class Pagination extends Component {
     render(){
         return(
             <div className="main-table-pagination">
-                <div className="search-results">
+                {/*<div className="search-results">
                     Результат: с 1 по 50 / <b>382</b>
                 </div>
 
@@ -47,7 +47,7 @@ export default class Pagination extends Component {
                         <option value="300">300</option>
                         <option value="500">500</option>
                     </select>
-                </div>
+                </div>*/}
             </div>
         )
     }

@@ -18,11 +18,11 @@ export default class ProductsTableHeader extends Component {
                 <th width="150">Price</th>
                 <th width="75">Currency</th>
                 <th width="100">Amount</th>
-                <th width="80">In process</th>
+                {/*<th width="80">In process</th>*/}
             </tr>
 
 
-            <tr>
+            {/*<tr>
                 <td>
                     <div className="ui input">
                         <input type="text"/>
@@ -95,7 +95,7 @@ export default class ProductsTableHeader extends Component {
                 </td>
 
 
-            </tr>
+            </tr>*/}
 
 
             </thead>

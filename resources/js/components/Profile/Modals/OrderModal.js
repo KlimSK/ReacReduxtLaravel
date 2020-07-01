@@ -159,7 +159,7 @@ class OrderModal extends Component {
 
                     <div className="modal-head">
                         <h2 className="modal-title">
-                            Заказ № 262469 [15586024052] от 2019-05-23 12:06:45 (Изменено: 2019-06-10 20:19:07)
+                            Order
                         </h2>
 
                     </div>
@@ -341,10 +341,10 @@ class OrderModal extends Component {
                                             <Input name="waybill"
                                                    value={this.props.orderInfo.waybill}
                                                    onChange={this.onChange}/>
-                                            <a href="#" className="input-setting open-secondary-modal"
+                                            {/*<a href="#" className="input-setting open-secondary-modal"
                                                data-modal-target="modal-create-ttn">
                                                 create
-                                            </a>
+                                            </a>*/}
 
                                         </div>
                                     </div>

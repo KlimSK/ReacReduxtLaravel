@@ -8,11 +8,9 @@ export default class CategoriesTableHeader extends Component{
         return(
             <thead>
             <tr>
-                <th width="65">id</th>
-                <th width="90">Название</th>
-                <th width="40">Статус</th>
-                <th width="30">Добавлено</th>
-                <th width="90">Sort</th>
+                <th width="1">id</th>
+                <th width="190">Name</th>
+                <th width="30">Added</th>
             </tr>
 
             </thead>

@@ -24,17 +24,8 @@ export default class Category extends Component{
                     <i className="folder outline icon"></i>
                     <span className="item">{this.props.category.name}</span>
                 </td>
-                <td className="text-align-center">
-                    <div className="ui toggle checkbox">
-                        <input type="checkbox" name="order-passed"/>
-                        <label htmlFor="order-passed"></label>
-                    </div>
-                </td>
                 <td>
                     <div className="item">{this.props.category['created_at'].split("T")[0]}</div>
-                </td>
-                <td>
-                    <span className="item">1</span>
                 </td>
             </tr>
         )

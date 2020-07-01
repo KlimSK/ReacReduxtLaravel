@@ -19,9 +19,6 @@ export default class Statistics extends Component {
 
     componentDidMount() {
         mainTableHeight();
-
-        console.log(getLocalStorage('usertoken'));
-
     }
 
     render() {
